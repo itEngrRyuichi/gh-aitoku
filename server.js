@@ -20,12 +20,6 @@ connection.once('open', () => {
     console.log("MongoDB database connection established successfully");
 });
 
-// port
-const port = process.env.PORT || 5000;
-
-app.listen(port, () => {
-    console.log(`Server is running on port: ${port}`);
-});
 
 // router
 const customersRouter = require('./routes/customers');
@@ -37,3 +31,18 @@ app.use('/customers', customersRouter);
 app.use('/prices', pricesRouter);
 app.use('/rooms', roomsRouter);
 app.use('/schedule', scheduleRouter);
+
+if(process.env.NODE_ENV === 'production') {
+    app.use(express.static('client/build'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'client', 'build', 'index.html'));
+    });
+}
+
+// port
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => {
+    console.log(`Server is running on port: ${port}`);
+});
