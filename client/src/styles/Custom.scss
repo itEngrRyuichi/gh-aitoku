@@ -1,0 +1,78 @@
+
+.title, option, p{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+}
+label, input, select, textarea{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-weight: 800;
+}
+.ninzu {
+    label {
+        font-size: 14px;
+    }
+}
+.title{
+    font-size: x-large;
+}
+
+.table{
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    .dropdown-item{
+        i{
+            width: 20px;
+            padding-right: 10px;
+        }
+        cursor: default;
+    }
+}
+
+.uchiwake{
+    thead{
+        th{
+            text-align: right;
+        }
+    }
+    td{
+        text-align: right;
+    }
+}
+
+.goukei{
+    text-align: right;
+    padding-right: 130px;
+}
+
+.rbc-calendar{
+    .rbc-time-content{
+        display: none !important;
+    }
+    
+    .rbc-time-view{
+        border: none !important;
+    }
+    
+    .rbc-time-header{
+        border: 1px solid #ddd;
+    }
+    
+    .rbc-toolbar-label{
+        font-family: 'M PLUS Rounded 1c', sans-serif !important;
+        font-size: x-large !important;
+    }
+
+    button .rbc-header, .rbc-date-cell, .rbc-event-content, span{
+        font-family: 'M PLUS Rounded 1c', sans-serif !important;
+        font-size: medium !important;
+    }
+
+    .rbc-show-more{
+        font-family: 'M PLUS Rounded 1c', sans-serif !important;
+        font-size: small !important;
+    }
+    .rbc-label, .rbc-time-header-gutter{
+        padding: 0;
+    }
+}
+
+
+
