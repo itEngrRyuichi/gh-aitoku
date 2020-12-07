@@ -1,10 +1,21 @@
 {
-  "name": "GuestHouseAitoku",
+  "name": "guesthouseaitoku",
   "version": "1.0.0",
   "description": "Guest House Aitoku Official Website",
   "main": "server.js",
   "repository": "https://github.com/itEngrRyuichi/gh-aitoku.git",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js"
+  },
   "author": "Ryuichi Egoshi <it.engr.ryuichi@gmail.com>",
   "license": "MIT",
-  "private": "false"
+  "private": "false",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.11.4",
+    "nodemon": "^2.0.6"
+  }
 }
