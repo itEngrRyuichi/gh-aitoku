@@ -133,15 +133,15 @@ export default class CustomersList extends Component {
                 <table className="table">
                     <thead className="thead-light">
                         <tr>
-                            <th><i className="fas fa-sign-in-alt"></i> CheckIn</th>
-                            <th><i className="fas fa-sign-out-alt"></i> CheckOut</th>
+                            <th><i className="fas fa-sign-in-alt"></i> Checkin</th>
+                            <th><i className="fas fa-sign-out-alt"></i> Checkout</th>
                             <th><i className="fas fa-sort-alpha-down"></i> お名前</th>
-                            <th><i className="fas fa-male"></i> 人数</th>
-                            <th><i className="fas fa-door-open"></i> 部屋</th>
-                            <th><i className="fas fa-plane-arrival"> 到着時刻</i></th>
-                            <th><i className="fas fa-directions"></i> 交通手段</th>
-                            <th><i className="fas fa-utensils"></i> 朝食</th>
-                            <th><i className="fas fa-yen-sign"></i> 値段</th>
+                            <th><i className="fas fa-male"></i></th>
+                            <th><i className="fas fa-door-open"></i></th>
+                            <th><i className="fas fa-plane-arrival"></i></th>
+                            <th><i className="fas fa-directions"></i></th>
+                            <th><i className="fas fa-utensils"></i></th>
+                            <th><i className="fas fa-yen-sign"></i></th>
                             <th></th>
                         </tr>
                     </thead>
