@@ -1,0 +1,10 @@
+{
+  "name": "GuestHouseAitoku",
+  "version": "1.0.0",
+  "description": "Guest House Aitoku Official Website",
+  "main": "server.js",
+  "repository": "https://github.com/itEngrRyuichi/gh-aitoku.git",
+  "author": "Ryuichi Egoshi <it.engr.ryuichi@gmail.com>",
+  "license": "MIT",
+  "private": "false"
+}
