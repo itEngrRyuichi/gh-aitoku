@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+
+import Navbar from "./navbar.component";
+
 import { Link } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
 import axios from 'axios';
@@ -126,30 +129,33 @@ export default class CustomersList extends Component {
 
     render() {
         return (
-            <div>
-                <div className="pt-5 pb-3">
-                    <p className="title">予約リスト</p>
+            <Fragment>
+                <Navbar />
+                <div className="container">
+                    <div className="pt-5 pb-3">
+                        <p className="title">予約リスト</p>
+                    </div>
+                    <table className="table">
+                        <thead className="thead-light">
+                            <tr>
+                                <th><i className="fas fa-sign-in-alt"></i> Checkin</th>
+                                <th><i className="fas fa-sign-out-alt"></i> Checkout</th>
+                                <th><i className="fas fa-sort-alpha-down"></i> お名前</th>
+                                <th><i className="fas fa-male"></i></th>
+                                <th><i className="fas fa-door-open"></i></th>
+                                <th><i className="fas fa-plane-arrival"></i></th>
+                                <th><i className="fas fa-directions"></i></th>
+                                <th><i className="fas fa-utensils"></i></th>
+                                <th><i className="fas fa-yen-sign"></i></th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            { this.customersList() }
+                        </tbody>
+                    </table>
                 </div>
-                <table className="table">
-                    <thead className="thead-light">
-                        <tr>
-                            <th><i className="fas fa-sign-in-alt"></i> Checkin</th>
-                            <th><i className="fas fa-sign-out-alt"></i> Checkout</th>
-                            <th><i className="fas fa-sort-alpha-down"></i> お名前</th>
-                            <th><i className="fas fa-male"></i></th>
-                            <th><i className="fas fa-door-open"></i></th>
-                            <th><i className="fas fa-plane-arrival"></i></th>
-                            <th><i className="fas fa-directions"></i></th>
-                            <th><i className="fas fa-utensils"></i></th>
-                            <th><i className="fas fa-yen-sign"></i></th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        { this.customersList() }
-                    </tbody>
-                </table>
-            </div>
+            </Fragment>
         )
     }
 }

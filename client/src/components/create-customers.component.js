@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+
+import Navbar from "./navbar.component";
+
 import axios from 'axios';
 
 export default class CreateCustomers extends Component {
@@ -489,190 +492,193 @@ export default class CreateCustomers extends Component {
 
     render() {
         return (
-            <div>
-                <p className="pt-5 title">新規予約</p>
-                <hr />
-                <form onSubmit={this.onSubmit}>
-                    <div className="row">
-                        <div className="col-6">
-                            <div className="form-group">
-                                <label>お名前</label>
-                                <input
-                                    type="text"
-                                    required
-                                    className="form-control"
-                                    value={this.state.username}
-                                    onChange={this.onChangeUsername}
-                                    placeholder="山田太郎"
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label>電話番号</label>
-                                <input
-                                    type="text"
-                                    required
-                                    className="form-control"
-                                    value={this.state.phone}
-                                    onChange={this.onChangePhone}
-                                    placeholder="08012345678"
-                                />
-                            </div>
-                            <div className="form-group">
-                                <label>Eメール</label>
-                                <input
-                                    type="text"
-                                    required
-                                    className="form-control"
-                                    value={this.state.email}
-                                    onChange={this.onChangeEmail}
-                                    placeholder="example@gmail.com"
-                                />
-                            </div>
-                        </div>
-                        <div className="col-6">
-                            <div className="row">
-                                <div className="col-6 form-group">
-                                    <label>チェックイン</label>
-                                    <input
-                                        type="date"
-                                        required
-                                        className="form-control"
-                                        value={this.state.checkin}
-                                        onChange={this.onChangeCheckin}
-                                    />
-                                </div>
-                                <div className="col-6 form-group">
-                                    <label>チェックアウト</label>
-                                    <input
-                                        type="date"
-                                        required
-                                        className="form-control"
-                                        value={this.state.checkout}
-                                        onChange={this.onChangeCheckout}
-                                    />
-                                </div>
-                            </div>
-                            <label>人数</label>
-                            <div className="row border p-3 mb-3 m-1 ninzu">
-                                <div className="col-3 form-group">
-                                    <label>大人(13-)</label>
-                                    <input
-                                        type="number"
-                                        required
-                                        className="form-control"
-                                        value={this.state.adult_no}
-                                        onChange={this.onChangeAdult}
-                                    />
-                                </div>
-                                <div className="col-3 form-group">
-                                    <label>小学生(7-12)</label>
-                                    <input
-                                        type="number"
-                                        required
-                                        className="form-control"
-                                        value={this.state.middle_no}
-                                        onChange={this.onChangeMiddle}
-                                    />
-                                </div>
-                                <div className="col-3 form-group">
-                                    <label>未就学児(4-6)</label>
-                                    <input
-                                        type="number"
-                                        required
-                                        className="form-control"
-                                        value={this.state.child_no}
-                                        onChange={this.onChangeChild}
-                                    />
-                                </div>
-                                <div className="col-3 form-group">
-                                    <label>幼児(0-3)</label>
-                                    <input
-                                        type="number"
-                                        required
-                                        className="form-control"
-                                        value={this.state.baby_no}
-                                        onChange={this.onChangeBaby}
-                                    />
-                                </div>
-                            </div>
-                        </div>
-                        <div className="col-12 form-group">
-                            <div className="row justify-content-end">
-                                <div className="col-2 form-group">
-                                    <label>朝食</label>
-                                    <select
-                                    required
-                                    className="form-control"
-                                    value={this.state.food}
-                                    onChange={this.onChangeFood}>
-                                        <option value="朝食なし">朝食なし</option>
-                                        <option value="朝食あり">朝食あり</option>
-                                    </select>
-                                </div>
-                                <div className="col-2 form-group">
-                                    <label>到着時刻</label>
-                                    <input
-                                        type="time"
-                                        required
-                                        className="form-control"
-                                        value={this.state.arrival}
-                                        onChange={this.onChangeArrival}
-                                    />
-                                </div>
-                                <div className="col-2 form-group">
-                                    <label>交通手段</label>
-                                    <select
-                                    required
-                                    className="form-control"
-                                    value={this.state.access}
-                                    onChange={this.onChangeAccess}>
-                                        <option value="自動車">自動車</option>
-                                        <option value="列車">列車</option>
-                                        <option value="バス">バス</option>
-                                        <option value="パラシュート">パラシュート</option>
-                                    </select>
-                                </div>
-                            </div>
-                            {/* <div className="row justify-content-end">
-                                <div className="col-2 form-group">
-                                    <label>お部屋数</label>
+            <Fragment>
+                <Navbar />
+                <div className="container">
+                    <p className="pt-5 title">新規予約</p>
+                    <hr />
+                    <form onSubmit={this.onSubmit}>
+                        <div className="row">
+                            <div className="col-6">
+                                <div className="form-group">
+                                    <label>お名前</label>
                                     <input
                                         type="text"
                                         required
                                         className="form-control"
-                                        readOnly
-                                        value={this.state.room}
+                                        value={this.state.username}
+                                        onChange={this.onChangeUsername}
+                                        placeholder="山田太郎"
                                     />
                                 </div>
-                                <div className="col-2 form-group">
-                                    <label>お部屋番号</label>
+                                <div className="form-group">
+                                    <label>電話番号</label>
                                     <input
                                         type="text"
                                         required
                                         className="form-control"
-                                        readOnly
-                                        value={this.state.room}
+                                        value={this.state.phone}
+                                        onChange={this.onChangePhone}
+                                        placeholder="08012345678"
                                     />
                                 </div>
-                            </div> */}
-                            <label>ご要望記入欄</label>
-                            <textarea
-                            className="form-control"
-                            value={this.state.description}
-                            onChange={this.onChangeDescription}
-                            required
-                            ></textarea>
+                                <div className="form-group">
+                                    <label>Eメール</label>
+                                    <input
+                                        type="text"
+                                        required
+                                        className="form-control"
+                                        value={this.state.email}
+                                        onChange={this.onChangeEmail}
+                                        placeholder="example@gmail.com"
+                                    />
+                                </div>
+                            </div>
+                            <div className="col-6">
+                                <div className="row">
+                                    <div className="col-6 form-group">
+                                        <label>チェックイン</label>
+                                        <input
+                                            type="date"
+                                            required
+                                            className="form-control"
+                                            value={this.state.checkin}
+                                            onChange={this.onChangeCheckin}
+                                        />
+                                    </div>
+                                    <div className="col-6 form-group">
+                                        <label>チェックアウト</label>
+                                        <input
+                                            type="date"
+                                            required
+                                            className="form-control"
+                                            value={this.state.checkout}
+                                            onChange={this.onChangeCheckout}
+                                        />
+                                    </div>
+                                </div>
+                                <label>人数</label>
+                                <div className="row border p-3 mb-3 m-1 ninzu">
+                                    <div className="col-3 form-group">
+                                        <label>大人(13-)</label>
+                                        <input
+                                            type="number"
+                                            required
+                                            className="form-control"
+                                            value={this.state.adult_no}
+                                            onChange={this.onChangeAdult}
+                                        />
+                                    </div>
+                                    <div className="col-3 form-group">
+                                        <label>小学生(7-12)</label>
+                                        <input
+                                            type="number"
+                                            required
+                                            className="form-control"
+                                            value={this.state.middle_no}
+                                            onChange={this.onChangeMiddle}
+                                        />
+                                    </div>
+                                    <div className="col-3 form-group">
+                                        <label>未就学児(4-6)</label>
+                                        <input
+                                            type="number"
+                                            required
+                                            className="form-control"
+                                            value={this.state.child_no}
+                                            onChange={this.onChangeChild}
+                                        />
+                                    </div>
+                                    <div className="col-3 form-group">
+                                        <label>幼児(0-3)</label>
+                                        <input
+                                            type="number"
+                                            required
+                                            className="form-control"
+                                            value={this.state.baby_no}
+                                            onChange={this.onChangeBaby}
+                                        />
+                                    </div>
+                                </div>
+                            </div>
+                            <div className="col-12 form-group">
+                                <div className="row justify-content-end">
+                                    <div className="col-2 form-group">
+                                        <label>朝食</label>
+                                        <select
+                                        required
+                                        className="form-control"
+                                        value={this.state.food}
+                                        onChange={this.onChangeFood}>
+                                            <option value="朝食なし">朝食なし</option>
+                                            <option value="朝食あり">朝食あり</option>
+                                        </select>
+                                    </div>
+                                    <div className="col-2 form-group">
+                                        <label>到着時刻</label>
+                                        <input
+                                            type="time"
+                                            required
+                                            className="form-control"
+                                            value={this.state.arrival}
+                                            onChange={this.onChangeArrival}
+                                        />
+                                    </div>
+                                    <div className="col-2 form-group">
+                                        <label>交通手段</label>
+                                        <select
+                                        required
+                                        className="form-control"
+                                        value={this.state.access}
+                                        onChange={this.onChangeAccess}>
+                                            <option value="自動車">自動車</option>
+                                            <option value="列車">列車</option>
+                                            <option value="バス">バス</option>
+                                            <option value="パラシュート">パラシュート</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                {/* <div className="row justify-content-end">
+                                    <div className="col-2 form-group">
+                                        <label>お部屋数</label>
+                                        <input
+                                            type="text"
+                                            required
+                                            className="form-control"
+                                            readOnly
+                                            value={this.state.room}
+                                        />
+                                    </div>
+                                    <div className="col-2 form-group">
+                                        <label>お部屋番号</label>
+                                        <input
+                                            type="text"
+                                            required
+                                            className="form-control"
+                                            readOnly
+                                            value={this.state.room}
+                                        />
+                                    </div>
+                                </div> */}
+                                <label>ご要望記入欄</label>
+                                <textarea
+                                className="form-control"
+                                value={this.state.description}
+                                onChange={this.onChangeDescription}
+                                required
+                                ></textarea>
+                            </div>
                         </div>
-                    </div>
-                    <div className="form-group pb-4">
-                        <input type="submit" value="予約" className="btn btn-outline-secondary" />
-                    </div>
-                    <div className="row py-2 border-bottom">
-                        { this.priceList() }
-                        { this.roomList() }
-                    </div>
-                </form>
-            </div>
+                        <div className="form-group pb-4">
+                            <input type="submit" value="予約" className="btn btn-outline-secondary" />
+                        </div>
+                        <div className="row py-2 border-bottom">
+                            { this.priceList() }
+                            { this.roomList() }
+                        </div>
+                    </form>
+                </div>
+            </Fragment>
         )
     }
 }

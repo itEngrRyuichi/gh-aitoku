@@ -1,4 +1,7 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
+
+import Navbar from "./navbar.component";
+
 import axios from 'axios';
 
 export default class Settings extends Component {
@@ -298,166 +301,169 @@ export default class Settings extends Component {
     
     render() {
         return (
-            <div>
-                <p className="pt-5 title">各種設定</p>
-                <hr />
-                <form onSubmit={this.onPriceSubmit}>
-                    <label><i className="far fa-check-square"></i> 値段設定</label><br />
-                    <div className="row">
-                        <div className="col-6">
-                            <label><i className="fas fa-utensils"></i> 朝食付き</label>
-                            <div className="row border p-3 mb-3 m-1 ninzu">
-                                <div className="col-3 form-group">
-                                    <label><i className="fas fa-male"></i> 大人</label>
-                                    <input
-                                        type="number"
-                                        required
-                                        className="form-control"
-                                        value={this.state.breakfast_adult}
-                                        onChange={this.onChangeBreakfastAdult}
-                                    />
-                                </div>
-                                <div className="col-3 form-group">
-                                    <label><i className="fas fa-child"></i> 小学生</label>
-                                    <input
-                                        type="number"
-                                        required
-                                        className="form-control"
-                                        value={this.state.breakfast_middle}
-                                        onChange={this.onChangeBreakfastMiddle}
-                                    />
-                                </div>
-                                <div className="col-3 form-group">
-                                    <label><i className="fas fa-child"></i> 未就学児</label>
-                                    <input
-                                        type="number"
-                                        required
-                                        className="form-control"
-                                        value={this.state.breakfast_child}
-                                        onChange={this.onChangeBreakfastChild}
-                                    />
-                                </div>
-                                <div className="col-3 form-group">
-                                    <label><i className="fas fa-baby"></i> 幼児</label>
-                                    <input
-                                        type="number"
-                                        required
-                                        className="form-control"
-                                        value={this.state.breakfast_baby}
-                                        onChange={this.onChangeBreakfastBaby}
-                                    />
-                                </div>
-                            </div>  
-                        </div>
-                        <div className="col-6">
-                            <label><i className="fas fa-bed"></i> 朝食なし</label>
-                            <div className="row border p-3 mb-3 m-1 ninzu">
-                                <div className="col-3 form-group">
-                                    <label><i className="fas fa-male"></i> 大人</label>
-                                    <input
-                                        type="number"
-                                        required
-                                        className="form-control"
-                                        value={this.state.stay_adult}
-                                        onChange={this.onChangeStayAdult}
-                                    />
-                                </div>
-                                <div className="col-3 form-group">
-                                    <label><i className="fas fa-child"></i> 小学生</label>
-                                    <input
-                                        type="number"
-                                        required
-                                        className="form-control"
-                                        value={this.state.stay_middle}
-                                        onChange={this.onChangeStayMiddle}
-                                    />
-                                </div>
-                                <div className="col-3 form-group">
-                                    <label><i className="fas fa-child"></i> 未就学児</label>
-                                    <input
-                                        type="number"
-                                        required
-                                        className="form-control"
-                                        value={this.state.stay_child}
-                                        onChange={this.onChangeStayChild}
-                                    />
-                                </div>
-                                <div className="col-3 form-group">
-                                    <label><i className="fas fa-baby"></i> 幼児</label>
-                                    <input
-                                        type="number"
-                                        required
-                                        className="form-control"
-                                        value={this.state.stay_baby}
-                                        onChange={this.onChangeStayBaby}
-                                    />
+            <Fragment>
+                <Navbar />
+                <div className="container">
+                    <p className="pt-5 title">各種設定</p>
+                    <hr />
+                    <form onSubmit={this.onPriceSubmit}>
+                        <label><i className="far fa-check-square"></i> 値段設定</label><br />
+                        <div className="row">
+                            <div className="col-6">
+                                <label><i className="fas fa-utensils"></i> 朝食付き</label>
+                                <div className="row border p-3 mb-3 m-1 ninzu">
+                                    <div className="col-3 form-group">
+                                        <label><i className="fas fa-male"></i> 大人</label>
+                                        <input
+                                            type="number"
+                                            required
+                                            className="form-control"
+                                            value={this.state.breakfast_adult}
+                                            onChange={this.onChangeBreakfastAdult}
+                                        />
+                                    </div>
+                                    <div className="col-3 form-group">
+                                        <label><i className="fas fa-child"></i> 小学生</label>
+                                        <input
+                                            type="number"
+                                            required
+                                            className="form-control"
+                                            value={this.state.breakfast_middle}
+                                            onChange={this.onChangeBreakfastMiddle}
+                                        />
+                                    </div>
+                                    <div className="col-3 form-group">
+                                        <label><i className="fas fa-child"></i> 未就学児</label>
+                                        <input
+                                            type="number"
+                                            required
+                                            className="form-control"
+                                            value={this.state.breakfast_child}
+                                            onChange={this.onChangeBreakfastChild}
+                                        />
+                                    </div>
+                                    <div className="col-3 form-group">
+                                        <label><i className="fas fa-baby"></i> 幼児</label>
+                                        <input
+                                            type="number"
+                                            required
+                                            className="form-control"
+                                            value={this.state.breakfast_baby}
+                                            onChange={this.onChangeBreakfastBaby}
+                                        />
+                                    </div>
+                                </div>  
+                            </div>
+                            <div className="col-6">
+                                <label><i className="fas fa-bed"></i> 朝食なし</label>
+                                <div className="row border p-3 mb-3 m-1 ninzu">
+                                    <div className="col-3 form-group">
+                                        <label><i className="fas fa-male"></i> 大人</label>
+                                        <input
+                                            type="number"
+                                            required
+                                            className="form-control"
+                                            value={this.state.stay_adult}
+                                            onChange={this.onChangeStayAdult}
+                                        />
+                                    </div>
+                                    <div className="col-3 form-group">
+                                        <label><i className="fas fa-child"></i> 小学生</label>
+                                        <input
+                                            type="number"
+                                            required
+                                            className="form-control"
+                                            value={this.state.stay_middle}
+                                            onChange={this.onChangeStayMiddle}
+                                        />
+                                    </div>
+                                    <div className="col-3 form-group">
+                                        <label><i className="fas fa-child"></i> 未就学児</label>
+                                        <input
+                                            type="number"
+                                            required
+                                            className="form-control"
+                                            value={this.state.stay_child}
+                                            onChange={this.onChangeStayChild}
+                                        />
+                                    </div>
+                                    <div className="col-3 form-group">
+                                        <label><i className="fas fa-baby"></i> 幼児</label>
+                                        <input
+                                            type="number"
+                                            required
+                                            className="form-control"
+                                            value={this.state.stay_baby}
+                                            onChange={this.onChangeStayBaby}
+                                        />
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div className="form-group">
-                        <input type="submit" value="更新" className="btn btn-outline-secondary" />
-                    </div>
-                </form>
-                <div>
-                    <hr />
-                    <label><i className="far fa-check-square"></i> 部屋割り優先度設定</label>
-                    <div className="row">
-                        <div className="col-6">
-                            <form>
-                                <label>4人部屋</label>
-                                <div className="form-group">
-                                </div>
-                                <table className="table">
-                                    <thead className="thead-light">
-                                        <tr>
-                                            <th><i className="fas fa-hashtag"></i></th>
-                                            <th><i className="fas fa-door-open"></i>号室</th>
-                                            <th><i className="fas fa-users"></i>人数</th>
-                                            <th><i className="fas fa-sort"></i> 入れ替え</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        { this.FourRoomsList() }
-                                    </tbody>
-                                </table>
-                            </form>
+                        <div className="form-group">
+                            <input type="submit" value="更新" className="btn btn-outline-secondary" />
                         </div>
-                        <div className="col-6">
-                            <form>
-                                <label>5人部屋</label>
-                                <div className="form-group">
-                                </div>
-                                <table className="table">
-                                    <thead className="thead-light">
-                                        <tr>
-                                            <th><i className="fas fa-door-open"></i>号室</th>
-                                            <th><i className="fas fa-users"></i>人数</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        { this.FiveRoomsList() }
-                                    </tbody>
-                                </table>
-                                <label>2人部屋 ベッドルーム</label>
-                                <div className="form-group">
-                                </div>
-                                <table className="table">
-                                    <thead className="thead-light">
-                                        <tr>
-                                            <th><i className="fas fa-door-open"></i>号室</th>
-                                            <th><i className="fas fa-users"></i>人数</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        { this.TwoRoomsList() }
-                                    </tbody>
-                                </table>
-                            </form>
+                    </form>
+                    <div>
+                        <hr />
+                        <label><i className="far fa-check-square"></i> 部屋割り優先度設定</label>
+                        <div className="row">
+                            <div className="col-6">
+                                <form>
+                                    <label>4人部屋</label>
+                                    <div className="form-group">
+                                    </div>
+                                    <table className="table">
+                                        <thead className="thead-light">
+                                            <tr>
+                                                <th><i className="fas fa-hashtag"></i></th>
+                                                <th><i className="fas fa-door-open"></i>号室</th>
+                                                <th><i className="fas fa-users"></i>人数</th>
+                                                <th><i className="fas fa-sort"></i> 入れ替え</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            { this.FourRoomsList() }
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
+                            <div className="col-6">
+                                <form>
+                                    <label>5人部屋</label>
+                                    <div className="form-group">
+                                    </div>
+                                    <table className="table">
+                                        <thead className="thead-light">
+                                            <tr>
+                                                <th><i className="fas fa-door-open"></i>号室</th>
+                                                <th><i className="fas fa-users"></i>人数</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            { this.FiveRoomsList() }
+                                        </tbody>
+                                    </table>
+                                    <label>2人部屋 ベッドルーム</label>
+                                    <div className="form-group">
+                                    </div>
+                                    <table className="table">
+                                        <thead className="thead-light">
+                                            <tr>
+                                                <th><i className="fas fa-door-open"></i>号室</th>
+                                                <th><i className="fas fa-users"></i>人数</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            { this.TwoRoomsList() }
+                                        </tbody>
+                                    </table>
+                                </form>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+            </Fragment>
         )
     }
 }
