@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-import Navbar from "./navbar.component";
+import AdminNavigation from "./navbar.component";
 
 import { Link } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
@@ -130,7 +130,7 @@ export default class CustomersList extends Component {
     render() {
         return (
             <Fragment>
-                <Navbar />
+                <AdminNavigation />
                 <div className="container">
                     <div className="pt-5 pb-3">
                         <p className="title">予約リスト</p>

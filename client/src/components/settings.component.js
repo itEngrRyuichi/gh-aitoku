@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-import Navbar from "./navbar.component";
+import AdminNavigation from "./navbar.component";
 
 import axios from 'axios';
 
@@ -302,7 +302,7 @@ export default class Settings extends Component {
     render() {
         return (
             <Fragment>
-                <Navbar />
+                <AdminNavigation />
                 <div className="container">
                     <p className="pt-5 title">各種設定</p>
                     <hr />

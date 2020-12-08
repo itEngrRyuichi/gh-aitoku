@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-import Navbar from "./navbar.component";
+import AdminNavigation from "./navbar.component";
 
 import axios from 'axios';
 import { Calendar, momentLocalizer } from 'react-big-calendar';
@@ -86,7 +86,7 @@ export default class Schedule extends Component {
     render() {
         return (
             <Fragment>
-                <Navbar />
+                <AdminNavigation />
                 <div className="container">
                     <div>
                         <div className="pt-5 pb-3">

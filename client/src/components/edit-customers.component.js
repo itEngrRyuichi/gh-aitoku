@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-import Navbar from "./navbar.component";
+import AdminNavigation from "./navbar.component";
 
 import axios from 'axios';
 
@@ -285,7 +285,7 @@ export default class EditCustomers extends Component {
     render() {
         return (
             <Fragment>
-                <Navbar />
+                <AdminNavigation />
                 <div className="container">
                     <p className="pt-5 title">編集</p>
                     <hr />
