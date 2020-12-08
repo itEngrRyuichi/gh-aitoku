@@ -44,7 +44,7 @@ export default class EditCustomers extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://aitoku-server.herokuapp.com/customers/'+this.props.match.params.id)
+        axios.get('https://guesthouseaitoku.herokuapp.com/customers/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     checkin: new Date(response.data.checkin).toISOString().split('T')[0],
@@ -219,7 +219,7 @@ export default class EditCustomers extends Component {
 
         console.log(customer);
 
-        axios.post('https://aitoku-server.herokuapp.com/customers/update/'+this.props.match.params.id, customer) 
+        axios.post('https://guesthouseaitoku.herokuapp.com/customers/update/'+this.props.match.params.id, customer) 
             .then(res => console.log(res.data));
 
         window.location = '/admin/';
