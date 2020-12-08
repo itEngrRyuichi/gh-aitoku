@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // connect to mongo
-const uri = process.env.MONGODB_URI || process.env.ATLAS_URI;
+const uri = process.env.ATLAS_URI || 'http://aitoku-server.herokuapp.com';
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
 const connection = mongoose.connection;
@@ -41,7 +41,7 @@ if(process.env.NODE_ENV === 'production') {
 }
 
 // port
-const port = process.env.PORT || 5000;
+const port = 'http://aitoku-server.herokuapp.com' || 5000;
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);
