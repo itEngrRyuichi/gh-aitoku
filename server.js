@@ -12,7 +12,7 @@ app.use(cors());
 app.use(express.json());
 
 // connect to mongo
-const uri = process.env.ATLAS_URI || 'http://aitoku-server.herokuapp.com';
+const uri = process.env.ATLAS_URI;
 mongoose.connect(uri, { useNewUrlParser: true, useCreateIndex: true, useUnifiedTopology: true }
 );
 const connection = mongoose.connection;
