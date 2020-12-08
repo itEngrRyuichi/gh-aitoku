@@ -49,21 +49,21 @@ export default class Settings extends Component {
         this.getStayMiddle();
         this.getStayChild();
         this.getStayBaby();
-        axios.get('http://aitoku-server.herokuapp.com/rooms/priorityFour')
+        axios.get('http://guesthouseaitoku.herokuapp.com/rooms/priorityFour')
         .then(response => {
             this.setState({ roomsFour: response.data })
         })
         .catch((error) => {
             console.log(error);
         });
-        axios.get('http://aitoku-server.herokuapp.com/rooms/priorityFive')
+        axios.get('http://guesthouseaitoku.herokuapp.com/rooms/priorityFive')
         .then(response => {
             this.setState({ roomsFive: response.data })
         })
         .catch((error) => {
             console.log(error);
         });
-        axios.get('http://aitoku-server.herokuapp.com/rooms/priorityTwo')
+        axios.get('http://guesthouseaitoku.herokuapp.com/rooms/priorityTwo')
         .then(response => {
             this.setState({ roomsTwo: response.data })
         })
@@ -73,7 +73,7 @@ export default class Settings extends Component {
     }
 
     getBreakfastAdult() {
-        axios.get('http://aitoku-server.herokuapp.com/prices/5faca682803cf55ec0675073')
+        axios.get('http://guesthouseaitoku.herokuapp.com/prices/5faca682803cf55ec0675073')
         .then(response => {
             this.setState({ breakfast_adult: response.data.amount })
         })
@@ -83,7 +83,7 @@ export default class Settings extends Component {
     }
 
     getBreakfastMiddle() {
-        axios.get('http://aitoku-server.herokuapp.com/prices/5faca6ea803cf55ec0675074')
+        axios.get('http://guesthouseaitoku.herokuapp.com/prices/5faca6ea803cf55ec0675074')
         .then(response => {
             this.setState({ breakfast_middle: response.data.amount })
         })
@@ -93,7 +93,7 @@ export default class Settings extends Component {
     }
 
     getBreakfastChild() {
-        axios.get('http://aitoku-server.herokuapp.com/prices/5faca717803cf55ec0675075')
+        axios.get('http://guesthouseaitoku.herokuapp.com/prices/5faca717803cf55ec0675075')
         .then(response => {
             this.setState({ breakfast_child: response.data.amount })
         })
@@ -103,7 +103,7 @@ export default class Settings extends Component {
     }
 
     getBreakfastBaby() {
-        axios.get('http://aitoku-server.herokuapp.com/prices/5faca739803cf55ec0675076')
+        axios.get('http://guesthouseaitoku.herokuapp.com/prices/5faca739803cf55ec0675076')
         .then(response => {
             this.setState({ breakfast_baby: response.data.amount })
         })
@@ -113,7 +113,7 @@ export default class Settings extends Component {
     }
 
     getStayAdult() {
-        axios.get('http://aitoku-server.herokuapp.com/prices/5faca770803cf55ec0675077')
+        axios.get('http://guesthouseaitoku.herokuapp.com/prices/5faca770803cf55ec0675077')
         .then(response => {
             this.setState({ stay_adult: response.data.amount })
         })
@@ -123,7 +123,7 @@ export default class Settings extends Component {
     }
 
     getStayMiddle() {
-        axios.get('http://aitoku-server.herokuapp.com/prices/5faca77f803cf55ec0675078')
+        axios.get('http://guesthouseaitoku.herokuapp.com/prices/5faca77f803cf55ec0675078')
         .then(response => {
             this.setState({ stay_middle: response.data.amount })
         })
@@ -133,7 +133,7 @@ export default class Settings extends Component {
     }
 
     getStayChild() {
-        axios.get('http://aitoku-server.herokuapp.com/prices/5faca78e803cf55ec0675079')
+        axios.get('http://guesthouseaitoku.herokuapp.com/prices/5faca78e803cf55ec0675079')
         .then(response => {
             this.setState({ stay_child: response.data.amount })
         })
@@ -143,7 +143,7 @@ export default class Settings extends Component {
     }
 
     getStayBaby() {
-        axios.get('http://aitoku-server.herokuapp.com/prices/5faca798803cf55ec067507a')
+        axios.get('http://guesthouseaitoku.herokuapp.com/prices/5faca798803cf55ec067507a')
         .then(response => {
             this.setState({ stay_baby: response.data.amount })
         })
@@ -203,21 +203,21 @@ export default class Settings extends Component {
     onPriceSubmit(e) {
         e.preventDefault();
 
-        axios.post('http://aitoku-server.herokuapp.com/prices/update/5faca682803cf55ec0675073', { title:'breakfast_adult', amount:this.state.breakfast_adult})
+        axios.post('http://guesthouseaitoku.herokuapp.com/prices/update/5faca682803cf55ec0675073', { title:'breakfast_adult', amount:this.state.breakfast_adult})
             .then(res => console.log(res.data));
-        axios.post('http://aitoku-server.herokuapp.com/prices/update/5faca6ea803cf55ec0675074', { title:'breakfast_middle',  amount:this.state.breakfast_middle})
+        axios.post('http://guesthouseaitoku.herokuapp.com/prices/update/5faca6ea803cf55ec0675074', { title:'breakfast_middle',  amount:this.state.breakfast_middle})
             .then(res => console.log(res.data));
-        axios.post('http://aitoku-server.herokuapp.com/prices/update/5faca717803cf55ec0675075', { title:'breakfast_child',  amount:this.state.breakfast_child})
+        axios.post('http://guesthouseaitoku.herokuapp.com/prices/update/5faca717803cf55ec0675075', { title:'breakfast_child',  amount:this.state.breakfast_child})
             .then(res => console.log(res.data));
-        axios.post('http://aitoku-server.herokuapp.com/prices/update/5faca739803cf55ec0675076', { title:'breakfast_baby',  amount:this.state.breakfast_baby})
+        axios.post('http://guesthouseaitoku.herokuapp.com/prices/update/5faca739803cf55ec0675076', { title:'breakfast_baby',  amount:this.state.breakfast_baby})
             .then(res => console.log(res.data));
-        axios.post('http://aitoku-server.herokuapp.com/prices/update/5faca770803cf55ec0675077', { title:'stay_adult',  amount:this.state.stay_adult})
+        axios.post('http://guesthouseaitoku.herokuapp.com/prices/update/5faca770803cf55ec0675077', { title:'stay_adult',  amount:this.state.stay_adult})
             .then(res => console.log(res.data));
-        axios.post('http://aitoku-server.herokuapp.com/prices/update/5faca77f803cf55ec0675078', { title:'stay_middle',  amount:this.state.stay_middle})
+        axios.post('http://guesthouseaitoku.herokuapp.com/prices/update/5faca77f803cf55ec0675078', { title:'stay_middle',  amount:this.state.stay_middle})
             .then(res => console.log(res.data));
-        axios.post('http://aitoku-server.herokuapp.com/prices/update/5faca78e803cf55ec0675079', { title:'stay_child',  amount:this.state.stay_child})
+        axios.post('http://guesthouseaitoku.herokuapp.com/prices/update/5faca78e803cf55ec0675079', { title:'stay_child',  amount:this.state.stay_child})
             .then(res => console.log(res.data));
-        axios.post('http://aitoku-server.herokuapp.com/prices/update/5faca798803cf55ec067507a', { title:'stay_baby',  amount:this.state.stay_baby})
+        axios.post('http://guesthouseaitoku.herokuapp.com/prices/update/5faca798803cf55ec067507a', { title:'stay_baby',  amount:this.state.stay_baby})
             .then(res => console.log(res.data));
 
         window.location = '/admin/';
@@ -226,10 +226,10 @@ export default class Settings extends Component {
     moveToUp(id, priority) {
         const upperPriority = priority - 1
         // 上のリストを今のリストに
-        axios.post('http://aitoku-server.herokuapp.com/rooms/changetodown/', { priority: upperPriority }) 
+        axios.post('http://guesthouseaitoku.herokuapp.com/rooms/changetodown/', { priority: upperPriority }) 
             .then(res => console.log(res.data));
         // 今のリストを上に
-        axios.post('http://aitoku-server.herokuapp.com/rooms/movedtoup/'+id, { priority }) 
+        axios.post('http://guesthouseaitoku.herokuapp.com/rooms/movedtoup/'+id, { priority }) 
             .then(res => console.log(res.data));
         window.location = '/admin/settings';
     }
@@ -237,10 +237,10 @@ export default class Settings extends Component {
     moveToDown(id, priority) {
         const downerPriority = priority + 1
         // 下のリストを今のリストに
-        axios.post('http://aitoku-server.herokuapp.com/rooms/changetoup/', { priority: downerPriority }) 
+        axios.post('http://guesthouseaitoku.herokuapp.com/rooms/changetoup/', { priority: downerPriority }) 
             .then(res => console.log(res.data));
         // 今のリストを下に
-        axios.post('http://aitoku-server.herokuapp.com/rooms/movedtodown/'+id, { priority }) 
+        axios.post('http://guesthouseaitoku.herokuapp.com/rooms/movedtodown/'+id, { priority }) 
             .then(res => console.log(res.data));
         window.location = '/admin/settings';
     }
