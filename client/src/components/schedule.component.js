@@ -35,7 +35,7 @@ export default class Schedule extends Component {
     }
 
     componentDidMount() {
-        axios.get('http://guesthouseaitoku.herokuapp.com/schedule/')
+        axios.get('http://aitoku-server.herokuapp.com/schedule/')
         .then(response => {
             this.setState({ events: 
                 response.data.map(currentcustomer => {
@@ -61,7 +61,7 @@ export default class Schedule extends Component {
     }
 
     openModal(id) {
-        axios.get('http://guesthouseaitoku.herokuapp.com/customers/'+id)
+        axios.get('http://aitoku-server.herokuapp.com/customers/'+id)
         .then(response => {
             this.setState({
                 isOpen: true,
