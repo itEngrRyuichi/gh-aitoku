@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-import AdminNavigation from "./navbar.component";
+import AdminNavigation from "./adminnavbar.component";
 
 import axios from 'axios';
 

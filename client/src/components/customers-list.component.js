@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 
-import AdminNavigation from "./navbar.component";
+import AdminNavigation from "./adminnavbar.component";
 
 import { Link } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
