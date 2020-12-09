@@ -126,7 +126,7 @@ export default class CreateCustomers extends Component {
     }
 
     getStayAdult() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca770803cf55ec0675077')
+        axios.get('http://localhost:5000/prices/5faca770803cf55ec0675077')
         .then(response => {
             this.setState({ adult_fee: response.data.amount })
         })
