@@ -297,7 +297,7 @@ export default class CreateCustomers extends Component {
             description: this.state.description,
         }
 
-        axios.post('https://guesthouseaitoku.herokuapp.com/customers/add', customer) 
+        axios.post('http://localhost:5000/customers/add', customer) 
             .then(res => console.log(res.data));
 
         window.location = '/admin/';
