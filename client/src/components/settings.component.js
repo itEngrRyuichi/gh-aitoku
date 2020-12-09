@@ -106,7 +106,7 @@ export default class Settings extends Component {
     }
 
     getBreakfastBaby() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca739803cf55ec0675076')
+        axios.get('http://localhost:5000/prices/5faca739803cf55ec0675076')
         .then(response => {
             this.setState({ breakfast_baby: response.data.amount })
         })
