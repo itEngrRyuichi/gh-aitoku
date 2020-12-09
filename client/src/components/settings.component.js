@@ -206,21 +206,21 @@ export default class Settings extends Component {
     onPriceSubmit(e) {
         e.preventDefault();
 
-        axios.post('https://guesthouseaitoku.herokuapp.com/prices/update/5faca682803cf55ec0675073', { title:'breakfast_adult', amount:this.state.breakfast_adult})
+        axios.post('http://localhost:5000/prices/update/5faca682803cf55ec0675073', { title:'breakfast_adult', amount:this.state.breakfast_adult})
             .then(res => console.log(res.data));
-        axios.post('https://guesthouseaitoku.herokuapp.com/prices/update/5faca6ea803cf55ec0675074', { title:'breakfast_middle',  amount:this.state.breakfast_middle})
+        axios.post('http://localhost:5000/prices/update/5faca6ea803cf55ec0675074', { title:'breakfast_middle',  amount:this.state.breakfast_middle})
             .then(res => console.log(res.data));
-        axios.post('https://guesthouseaitoku.herokuapp.com/prices/update/5faca717803cf55ec0675075', { title:'breakfast_child',  amount:this.state.breakfast_child})
+        axios.post('http://localhost:5000/prices/update/5faca717803cf55ec0675075', { title:'breakfast_child',  amount:this.state.breakfast_child})
             .then(res => console.log(res.data));
-        axios.post('https://guesthouseaitoku.herokuapp.com/prices/update/5faca739803cf55ec0675076', { title:'breakfast_baby',  amount:this.state.breakfast_baby})
+        axios.post('http://localhost:5000/prices/update/5faca739803cf55ec0675076', { title:'breakfast_baby',  amount:this.state.breakfast_baby})
             .then(res => console.log(res.data));
-        axios.post('https://guesthouseaitoku.herokuapp.com/prices/update/5faca770803cf55ec0675077', { title:'stay_adult',  amount:this.state.stay_adult})
+        axios.post('http://localhost:5000/prices/update/5faca770803cf55ec0675077', { title:'stay_adult',  amount:this.state.stay_adult})
             .then(res => console.log(res.data));
-        axios.post('https://guesthouseaitoku.herokuapp.com/prices/update/5faca77f803cf55ec0675078', { title:'stay_middle',  amount:this.state.stay_middle})
+        axios.post('http://localhost:5000/prices/update/5faca77f803cf55ec0675078', { title:'stay_middle',  amount:this.state.stay_middle})
             .then(res => console.log(res.data));
-        axios.post('https://guesthouseaitoku.herokuapp.com/prices/update/5faca78e803cf55ec0675079', { title:'stay_child',  amount:this.state.stay_child})
+        axios.post('http://localhost:5000/prices/update/5faca78e803cf55ec0675079', { title:'stay_child',  amount:this.state.stay_child})
             .then(res => console.log(res.data));
-        axios.post('https://guesthouseaitoku.herokuapp.com/prices/update/5faca798803cf55ec067507a', { title:'stay_baby',  amount:this.state.stay_baby})
+        axios.post('http://localhost:5000/prices/update/5faca798803cf55ec067507a', { title:'stay_baby',  amount:this.state.stay_baby})
             .then(res => console.log(res.data));
 
         window.location = '/admin/';
