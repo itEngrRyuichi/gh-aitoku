@@ -100,7 +100,7 @@ export default class CustomersList extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/customers')
+        axios.get('http://localhost:5000/customers')
         .then(response => {
             this.setState({ customers: response.data })
         })
