@@ -229,10 +229,10 @@ export default class Settings extends Component {
     moveToUp(id, priority) {
         const upperPriority = priority - 1
         // 上のリストを今のリストに
-        axios.post('https://guesthouseaitoku.herokuapp.com/rooms/changetodown/', { priority: upperPriority }) 
+        axios.post('http://localhost:5000/rooms/changetodown/', { priority: upperPriority }) 
             .then(res => console.log(res.data));
         // 今のリストを上に
-        axios.post('https://guesthouseaitoku.herokuapp.com/rooms/movedtoup/'+id, { priority }) 
+        axios.post('http://localhost:5000/rooms/movedtoup/'+id, { priority }) 
             .then(res => console.log(res.data));
         window.location = '/admin/settings';
     }
