@@ -222,7 +222,7 @@ export default class EditCustomers extends Component {
 
         console.log(customer);
 
-        axios.post('https://guesthouseaitoku.herokuapp.com/customers/update/'+this.props.match.params.id, customer) 
+        axios.post('http://localhost:5000/customers/update/'+this.props.match.params.id, customer) 
             .then(res => console.log(res.data));
 
         window.location = '/admin/';
