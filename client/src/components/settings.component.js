@@ -146,7 +146,7 @@ export default class Settings extends Component {
     }
 
     getStayBaby() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca798803cf55ec067507a')
+        axios.get('http://localhost:5000/prices/5faca798803cf55ec067507a')
         .then(response => {
             this.setState({ stay_baby: response.data.amount })
         })
