@@ -52,21 +52,21 @@ export default class Settings extends Component {
         this.getStayMiddle();
         this.getStayChild();
         this.getStayBaby();
-        axios.get('https://guesthouseaitoku.herokuapp.com/rooms/priorityFour')
+        axios.get('http://localhost:5000/rooms/priorityFour')
         .then(response => {
             this.setState({ roomsFour: response.data })
         })
         .catch((error) => {
             console.log(error);
         });
-        axios.get('https://guesthouseaitoku.herokuapp.com/rooms/priorityFive')
+        axios.get('http://localhost:5000/rooms/priorityFive')
         .then(response => {
             this.setState({ roomsFive: response.data })
         })
         .catch((error) => {
             console.log(error);
         });
-        axios.get('https://guesthouseaitoku.herokuapp.com/rooms/priorityTwo')
+        axios.get('http://localhost:5000/rooms/priorityTwo')
         .then(response => {
             this.setState({ roomsTwo: response.data })
         })
