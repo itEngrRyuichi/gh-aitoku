@@ -337,7 +337,7 @@ export default class CreateCustomers extends Component {
             room: room
         }
 
-        axios.get('https://guesthouseaitoku.herokuapp.com/schedule/availRooms', { params: params })
+        axios.get('http://localhost:5000/schedule/availRooms', { params: params })
         .then(response => {
             const availableRooms = [];
             response.data.map((room) => {
