@@ -110,7 +110,7 @@ export default class CustomersList extends Component {
     }
 
     deleteCustomer(id) {
-        axios.delete('https://guesthouseaitoku.herokuapp.com/customers'+id)
+        axios.delete('http://localhost:5000/customers'+id)
             .then(res => console.log(res.data));
             this.setState({
                 customers: this.state.customers.filter(el => el._id !== id)
