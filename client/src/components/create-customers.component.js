@@ -96,7 +96,7 @@ export default class CreateCustomers extends Component {
     }
 
     getBreakfastMiddle() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca6ea803cf55ec0675074')
+        axios.get('http://localhost:5000/prices/5faca6ea803cf55ec0675074')
         .then(response => {
             this.setState({ middle_fee: response.data.amount })
         })
