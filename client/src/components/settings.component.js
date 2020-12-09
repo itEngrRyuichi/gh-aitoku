@@ -240,10 +240,10 @@ export default class Settings extends Component {
     moveToDown(id, priority) {
         const downerPriority = priority + 1
         // 下のリストを今のリストに
-        axios.post('https://guesthouseaitoku.herokuapp.com/rooms/changetoup/', { priority: downerPriority }) 
+        axios.post('http://localhost:5000/rooms/changetoup/', { priority: downerPriority }) 
             .then(res => console.log(res.data));
         // 今のリストを下に
-        axios.post('https://guesthouseaitoku.herokuapp.com/rooms/movedtodown/'+id, { priority }) 
+        axios.post('http://localhost:5000/rooms/movedtodown/'+id, { priority }) 
             .then(res => console.log(res.data));
         window.location = '/admin/settings';
     }
