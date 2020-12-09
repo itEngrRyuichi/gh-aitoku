@@ -47,7 +47,7 @@ export default class EditCustomers extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/customers/'+this.props.match.params.id)
+        axios.get('http://localhost:5000/customers/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     checkin: new Date(response.data.checkin).toISOString().split('T')[0],
