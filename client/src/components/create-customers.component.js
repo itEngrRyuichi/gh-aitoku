@@ -156,7 +156,7 @@ export default class CreateCustomers extends Component {
     }
 
     getStayBaby() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca798803cf55ec067507a')
+        axios.get('http://localhost:5000/prices/5faca798803cf55ec067507a')
         .then(response => {
             this.setState({ baby_fee: response.data.amount })
         })
