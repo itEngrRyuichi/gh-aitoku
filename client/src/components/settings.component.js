@@ -76,7 +76,7 @@ export default class Settings extends Component {
     }
 
     getBreakfastAdult() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca682803cf55ec0675073')
+        axios.get('http://localhost:5000/prices/5faca682803cf55ec0675073')
         .then(response => {
             this.setState({ breakfast_adult: response.data.amount })
         })
