@@ -38,7 +38,7 @@ export default class Schedule extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/schedule/')
+        axios.get('http://localhost:5000/schedule/')
         .then(response => {
             this.setState({ events: 
                 response.data.map(currentcustomer => {
