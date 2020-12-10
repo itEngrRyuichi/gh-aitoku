@@ -86,7 +86,7 @@ export default class CreateCustomers extends Component {
     }
 
     getBreakfastAdult() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca682803cf55ec0675073')
+        axios.get('http://localhost:5000/prices/5faca682803cf55ec0675073')
         .then(response => {
             this.setState({ adult_fee: response.data.amount })
         })
@@ -96,7 +96,7 @@ export default class CreateCustomers extends Component {
     }
 
     getBreakfastMiddle() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca6ea803cf55ec0675074')
+        axios.get('http://localhost:5000/prices/5faca6ea803cf55ec0675074')
         .then(response => {
             this.setState({ middle_fee: response.data.amount })
         })
@@ -106,7 +106,7 @@ export default class CreateCustomers extends Component {
     }
 
     getBreakfastChild() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca717803cf55ec0675075')
+        axios.get('http://localhost:5000/prices/5faca717803cf55ec0675075')
         .then(response => {
             this.setState({ child_fee: response.data.amount })
         })
@@ -116,7 +116,7 @@ export default class CreateCustomers extends Component {
     }
 
     getBreakfastBaby() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca739803cf55ec0675076')
+        axios.get('http://localhost:5000/prices/5faca739803cf55ec0675076')
         .then(response => {
             this.setState({ baby_fee: response.data.amount })
         })
@@ -126,7 +126,7 @@ export default class CreateCustomers extends Component {
     }
 
     getStayAdult() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca770803cf55ec0675077')
+        axios.get('http://localhost:5000/prices/5faca770803cf55ec0675077')
         .then(response => {
             this.setState({ adult_fee: response.data.amount })
         })
@@ -136,7 +136,7 @@ export default class CreateCustomers extends Component {
     }
 
     getStayMiddle() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca77f803cf55ec0675078')
+        axios.get('http://localhost:5000/prices/5faca77f803cf55ec0675078')
         .then(response => {
             this.setState({ middle_fee: response.data.amount })
         })
@@ -146,7 +146,7 @@ export default class CreateCustomers extends Component {
     }
 
     getStayChild() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca78e803cf55ec0675079')
+        axios.get('http://localhost:5000/prices/5faca78e803cf55ec0675079')
         .then(response => {
             this.setState({ child_fee: response.data.amount })
         })
@@ -156,7 +156,7 @@ export default class CreateCustomers extends Component {
     }
 
     getStayBaby() {
-        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca798803cf55ec067507a')
+        axios.get('http://localhost:5000/prices/5faca798803cf55ec067507a')
         .then(response => {
             this.setState({ baby_fee: response.data.amount })
         })
@@ -297,7 +297,7 @@ export default class CreateCustomers extends Component {
             description: this.state.description,
         }
 
-        axios.post('https://guesthouseaitoku.herokuapp.com/customers/add', customer) 
+        axios.post('http://localhost:5000/customers/add', customer) 
             .then(res => console.log(res.data));
 
         window.location = '/admin/';
@@ -310,7 +310,7 @@ export default class CreateCustomers extends Component {
             checkout: this.state.checkout
         }
         
-        axios.get('https://guesthouseaitoku.herokuapp.com/schedule/getReservedRooms', { params: params })
+        axios.get('http://localhost:5000/schedule/getReservedRooms', { params: params })
         .then(response => {
             const reserveRooms = [];
             response.data.map((customer) => {
@@ -337,7 +337,7 @@ export default class CreateCustomers extends Component {
             room: room
         }
 
-        axios.get('https://guesthouseaitoku.herokuapp.com/schedule/availRooms', { params: params })
+        axios.get('http://localhost:5000/schedule/availRooms', { params: params })
         .then(response => {
             const availableRooms = [];
             response.data.map((room) => {
