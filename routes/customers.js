@@ -82,10 +82,25 @@ router.route('/:id').delete((req, res) => {
 });
 
 router.route('/update/:id').post((req, res) => {
+    const checkin = Date.parse(req.body.checkin);
+    const checkout = Date.parse(req.body.checkout);
+    const msDiff = new Date(checkout).getTime() - new Date(checkin).getTime();
+    const duration = Math.floor(msDiff / (1000 * 60 * 60 * 24));
+
+    // for reserved dates
+    const recieve_date = [];
+    for (let i = 0; i < duration + 1; i++) {
+      var result = new Date(req.body.checkin);
+      recieve_date.push(new Date(result.setDate(result.getDate() + i)));
+    }
+
+
     Customer.findById(req.params.id)
     .then(customer => {
         customer.checkin = Date.parse(req.body.checkin);
         customer.checkout = Date.parse(req.body.checkout);
+        customer.duration = duration;
+        customer.recieve_date = recieve_date;
         customer.username = req.body.username;
         customer.phone = Number(req.body.phone);
         customer.email = req.body.email;
@@ -103,21 +118,6 @@ router.route('/update/:id').post((req, res) => {
         customer.access = req.body.access;
         customer.food = req.body.food;
         customer.description = req.body.description;
-
-        const checkin = Date.parse(req.body.checkin);
-        const checkout = Date.parse(req.body.checkout);
-        const msDiff = new Date(checkout).getTime() - new Date(checkin).getTime();
-        const duration = Math.floor(msDiff / (1000 * 60 * 60 * 24));
-        customer.duration = duration;
-
-        // for reserved dates
-        const recieve_date = [];
-        for (let i = 0; i < duration + 1; i++) {
-          var result = new Date(req.body.checkin);
-          recieve_date.push(new Date(result.setDate(result.getDate() + i)));
-        }
-        customer.recieve_date = recieve_date;
-
 
       customer.save()
         .then(() => res.json('Customer updated!'))
