@@ -223,7 +223,7 @@ export default class Settings extends Component {
         axios.post('https://guesthouseaitoku.herokuapp.com/prices/update/5faca798803cf55ec067507a', { title:'stay_baby',  amount:this.state.stay_baby})
             .then(res => console.log(res.data));
 
-        window.location = '/admin/';
+        setTimeout(function(){ window.location = '/admin/settings';}, 1000);
     }
 
     moveToUp(id, priority) {
@@ -234,7 +234,7 @@ export default class Settings extends Component {
         // 今のリストを上に
         axios.post('https://guesthouseaitoku.herokuapp.com/rooms/movedtoup/'+id, { priority }) 
             .then(res => console.log(res.data));
-        window.location = '/admin/settings';
+        setTimeout(function(){ window.location = '/admin/settings';}, 1000);
     }
 
     moveToDown(id, priority) {
@@ -245,7 +245,7 @@ export default class Settings extends Component {
         // 今のリストを下に
         axios.post('https://guesthouseaitoku.herokuapp.com/rooms/movedtodown/'+id, { priority }) 
             .then(res => console.log(res.data));
-        window.location = '/admin/settings';
+        setTimeout(function(){ window.location = '/admin/settings';}, 1000);
     }
 
     FourRoomsList() {
