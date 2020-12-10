@@ -107,14 +107,16 @@ router.route('/update/:id').post((req, res) => {
         const checkin = Date.parse(req.body.checkin);
         const checkout = Date.parse(req.body.checkout);
         const msDiff = new Date(checkout).getTime() - new Date(checkin).getTime();
-        customer.duration = Math.floor(msDiff / (1000 * 60 * 60 * 24));
+        const duration = Math.floor(msDiff / (1000 * 60 * 60 * 24));
+        customer.duration = duration;
 
         // for reserved dates
-        customer.recieve_date = [];
+        const recieve_date = [];
         for (let i = 0; i < duration + 1; i++) {
           var result = new Date(req.body.checkin);
           recieve_date.push(new Date(result.setDate(result.getDate() + i)));
         }
+        customer.recieve_date = recieve_date;
 
 
       customer.save()
