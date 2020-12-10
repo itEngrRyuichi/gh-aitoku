@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 const customersSchema = new Schema({
     checkin: { type: Date, required: true }, // チェックイン
     checkout: { type: Date, required: true }, // チェックアウト
-    duration: {type: Number, required: true }, // 何日間
+    duration: { type: Number, required: true }, // 何日間
     recieve_date: { type: Array }, // 予約日
     username: { type: String, required: true }, // お客の名前
     phone: { type: String, required: true }, // 電話番号（連絡先）
