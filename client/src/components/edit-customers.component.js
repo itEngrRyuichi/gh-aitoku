@@ -199,6 +199,9 @@ export default class EditCustomers extends Component {
     onSubmit(e) {
         e.preventDefault();
 
+        /* const msDiff = new Date(this.state.checkout).getTime() - new Date(this.state.checkin).getTime();
+        const duration = Math.floor(msDiff / (1000 * 60 * 60 * 24)); */
+
         const customer = {
             checkin: this.state.checkin,
             checkout: this.state.checkout,
@@ -218,14 +221,10 @@ export default class EditCustomers extends Component {
             access: this.state.access,
             food: this.state.food,
             description: this.state.description,
-        }
+        };
 
-        console.log(customer);
-
-        axios.post('https://guesthouseaitoku.herokuapp.com/customers/update/'+this.props.match.params.id, customer) 
-            .then(res => console.log(res.data));
-
-        window.location = '/admin/';
+        axios.post('https://guesthouseaitoku.herokuapp.com/customers/update/'+ this.props.match.params.id, customer) 
+            .then(res => console.log(res.data) + setTimeout(function(){ window.location = '/admin';}, 100));
     }
 
     priceList() {
