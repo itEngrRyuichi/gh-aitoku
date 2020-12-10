@@ -30,9 +30,9 @@ export default class CreateCustomers extends Component {
         this.onChangeFood = this.onChangeFood.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
-        this.getReserveRooms = this.getReserveRooms.bind(this);
+        /* this.getReserveRooms = this.getReserveRooms.bind(this);
         this.getAvailableRooms = this.getAvailableRooms.bind(this);
-        this.onChangeRoom = this.onChangeRoom.bind(this);
+        this.onChangeRoom = this.onChangeRoom.bind(this); */
 
         this.state = {
             checkin: new Date(''),
@@ -67,10 +67,10 @@ export default class CreateCustomers extends Component {
         this.getStayMiddle();
         this.getStayChild();
         this.getStayBaby();
-        const adult_no = this.state.adult_no;
+        /* const adult_no = this.state.adult_no;
         const middle_no = this.state.middle_no;
         const child_no = this.state.child_no;
-        const baby_no = this.state.baby_no;
+        const baby_no = this.state.baby_no; */
         
         let check_in = new Date();
         let check_out = new Date();
@@ -82,11 +82,11 @@ export default class CreateCustomers extends Component {
             checkout: new Date(checkout).toISOString().split('T')[0]
         });
         
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
+        /* this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
     }
 
     getBreakfastAdult() {
-        axios.get('http://localhost:5000/prices/5faca682803cf55ec0675073')
+        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca682803cf55ec0675073')
         .then(response => {
             this.setState({ adult_fee: response.data.amount })
         })
@@ -96,7 +96,7 @@ export default class CreateCustomers extends Component {
     }
 
     getBreakfastMiddle() {
-        axios.get('http://localhost:5000/prices/5faca6ea803cf55ec0675074')
+        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca6ea803cf55ec0675074')
         .then(response => {
             this.setState({ middle_fee: response.data.amount })
         })
@@ -106,7 +106,7 @@ export default class CreateCustomers extends Component {
     }
 
     getBreakfastChild() {
-        axios.get('http://localhost:5000/prices/5faca717803cf55ec0675075')
+        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca717803cf55ec0675075')
         .then(response => {
             this.setState({ child_fee: response.data.amount })
         })
@@ -116,7 +116,7 @@ export default class CreateCustomers extends Component {
     }
 
     getBreakfastBaby() {
-        axios.get('http://localhost:5000/prices/5faca739803cf55ec0675076')
+        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca739803cf55ec0675076')
         .then(response => {
             this.setState({ baby_fee: response.data.amount })
         })
@@ -126,7 +126,7 @@ export default class CreateCustomers extends Component {
     }
 
     getStayAdult() {
-        axios.get('http://localhost:5000/prices/5faca770803cf55ec0675077')
+        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca770803cf55ec0675077')
         .then(response => {
             this.setState({ adult_fee: response.data.amount })
         })
@@ -136,7 +136,7 @@ export default class CreateCustomers extends Component {
     }
 
     getStayMiddle() {
-        axios.get('http://localhost:5000/prices/5faca77f803cf55ec0675078')
+        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca77f803cf55ec0675078')
         .then(response => {
             this.setState({ middle_fee: response.data.amount })
         })
@@ -146,7 +146,7 @@ export default class CreateCustomers extends Component {
     }
 
     getStayChild() {
-        axios.get('http://localhost:5000/prices/5faca78e803cf55ec0675079')
+        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca78e803cf55ec0675079')
         .then(response => {
             this.setState({ child_fee: response.data.amount })
         })
@@ -156,7 +156,7 @@ export default class CreateCustomers extends Component {
     }
 
     getStayBaby() {
-        axios.get('http://localhost:5000/prices/5faca798803cf55ec067507a')
+        axios.get('https://guesthouseaitoku.herokuapp.com/prices/5faca798803cf55ec067507a')
         .then(response => {
             this.setState({ baby_fee: response.data.amount })
         })
@@ -199,43 +199,44 @@ export default class CreateCustomers extends Component {
         this.setState({
             adult_no: e.target.value
         });
-        const adult_no = e.target.value;
+        /* const adult_no = e.target.value;
         const middle_no = this.state.middle_no;
         const child_no = this.state.child_no;
         const baby_no = this.state.baby_no;
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
     }
 
     onChangeMiddle(e) {
         this.setState({
             middle_no: e.target.value
         });
-        const adult_no = this.state.adult_no;
+        /* const adult_no = this.state.adult_no;
         const middle_no = e.target.value;
         const child_no = this.state.child_no;
         const baby_no = this.state.baby_no;
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);    }
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
+    }
 
     onChangeChild(e) {
         this.setState({
             child_no: e.target.value
         });
-        const adult_no = this.state.adult_no;
+        /* const adult_no = this.state.adult_no;
         const middle_no = this.state.middle_no;
         const child_no = e.target.value;
         const baby_no = this.state.baby_no;
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
     }
 
     onChangeBaby(e) {
         this.setState({
             baby_no: e.target.value
         });
-        const adult_no = this.state.adult_no;
+        /* const adult_no = this.state.adult_no;
         const middle_no = this.state.middle_no;
         const child_no = this.state.child_no;
         const baby_no = e.target.value;
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
     }
 
     onChangeArrival(e) {
@@ -297,20 +298,18 @@ export default class CreateCustomers extends Component {
             description: this.state.description,
         }
 
-        axios.post('http://localhost:5000/customers/add', customer) 
-            .then(res => console.log(res.data));
-
-        window.location = '/admin/';
+        axios.post('https://guesthouseaitoku.herokuapp.com/customers/add', customer) 
+            .then(res => console.log(res.data) + setTimeout(function(){ window.location = '/admin';}, 100));
     }
 
     // step 1
-    getReserveRooms() {
+    /* getReserveRooms() {
         const params = {
             checkin: this.state.checkin,
             checkout: this.state.checkout
         }
         
-        axios.get('http://localhost:5000/schedule/getReservedRooms', { params: params })
+        axios.get('https://guesthouseaitoku.herokuapp.com/schedule/getReservedRooms', { params: params })
         .then(response => {
             const reserveRooms = [];
             response.data.map((customer) => {
@@ -326,10 +325,10 @@ export default class CreateCustomers extends Component {
                 reserveRooms: reserveRooms
             });
         })
-    }
+    } */
     
     //step 2
-    getAvailableRooms(capacity, room) {
+    /* getAvailableRooms(capacity, room) {
         const reserveRooms = this.state.reserveRooms;
         const params = {
             reserveRooms: reserveRooms,
@@ -337,24 +336,24 @@ export default class CreateCustomers extends Component {
             room: room
         }
 
-        axios.get('http://localhost:5000/schedule/availRooms', { params: params })
+        axios.get('https://guesthouseaitoku.herokuapp.com/schedule/availRooms', { params: params })
         .then(response => {
             const availableRooms = [];
             response.data.map((room) => {
                 availableRooms.push(room._id)
             })
             // filter duplicate index
-            /* availableRooms.filter(function(x, i, self) {
+            availableRooms.filter(function(x, i, self) {
                 return self.indexOf(x) === i;
-            }); */
+            });
             this.setState({
                 rooms: availableRooms,
                 room: room
             });
         });
-    }
+    } */
     
-    onChangeRoom(adult_no, middle_no, child_no, baby_no) {
+    /* onChangeRoom(adult_no, middle_no, child_no, baby_no) {
         const meanValue = adult_no*1.0 + middle_no*0.75 + child_no*0.5 + baby_no*0;
 
         if ( meanValue <13 ){
@@ -423,7 +422,7 @@ export default class CreateCustomers extends Component {
             })
             return console.log(result);
         }
-    }
+    } */
 
     priceList() {
         const msDiff = new Date(this.state.checkout).getTime() - new Date(this.state.checkin).getTime();
