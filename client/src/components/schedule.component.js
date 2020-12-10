@@ -42,14 +42,14 @@ export default class Schedule extends Component {
         .then(response => {
             this.setState({ events: 
                 response.data.map(currentcustomer => {
-                    var reserveRooms = [];
+                    /* var reserveRooms = [];
+                    currentcustomer.rooms.map((room) => {
+                        reserveRooms.push(room.title + '号室')
+                    }); */
                     return (
-                        currentcustomer.rooms.map((room) => {
-                            reserveRooms.push(room.title + '号室')
-                        }),
                         {
                             id: currentcustomer._id,
-                            title: reserveRooms + ' ' + currentcustomer.username + '様 ' + 
+                            title: /* reserveRooms + ' ' + */ currentcustomer.username + '様 ' + 
                                 (currentcustomer.adult_no + currentcustomer.middle_no + currentcustomer.child_no + currentcustomer.baby_no) + '名',
                             start: new Date(currentcustomer.checkin),
                             end: new Date(currentcustomer.checkout),
