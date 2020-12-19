@@ -67,10 +67,6 @@ export default class CreateCustomers extends Component {
         this.getStayMiddle();
         this.getStayChild();
         this.getStayBaby();
-        /* const adult_no = this.state.adult_no;
-        const middle_no = this.state.middle_no;
-        const child_no = this.state.child_no;
-        const baby_no = this.state.baby_no; */
         
         let check_in = new Date();
         let check_out = new Date();
@@ -81,8 +77,6 @@ export default class CreateCustomers extends Component {
             checkin: new Date(checkin).toISOString().split('T')[0],
             checkout: new Date(checkout).toISOString().split('T')[0]
         });
-        
-        /* this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
     }
 
     getBreakfastAdult() {
@@ -199,44 +193,24 @@ export default class CreateCustomers extends Component {
         this.setState({
             adult_no: e.target.value
         });
-        /* const adult_no = e.target.value;
-        const middle_no = this.state.middle_no;
-        const child_no = this.state.child_no;
-        const baby_no = this.state.baby_no;
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
     }
 
     onChangeMiddle(e) {
         this.setState({
             middle_no: e.target.value
         });
-        /* const adult_no = this.state.adult_no;
-        const middle_no = e.target.value;
-        const child_no = this.state.child_no;
-        const baby_no = this.state.baby_no;
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
     }
 
     onChangeChild(e) {
         this.setState({
             child_no: e.target.value
         });
-        /* const adult_no = this.state.adult_no;
-        const middle_no = this.state.middle_no;
-        const child_no = e.target.value;
-        const baby_no = this.state.baby_no;
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
     }
 
     onChangeBaby(e) {
         this.setState({
             baby_no: e.target.value
         });
-        /* const adult_no = this.state.adult_no;
-        const middle_no = this.state.middle_no;
-        const child_no = this.state.child_no;
-        const baby_no = e.target.value;
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
     }
 
     onChangeArrival(e) {
@@ -484,7 +458,7 @@ export default class CreateCustomers extends Component {
         return (
             <div className="col-2">
                 <label className="py-4">部屋割り</label>
-
+                <h1>Hello World</h1>
             </div>
         );
     }
