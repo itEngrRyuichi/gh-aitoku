@@ -611,28 +611,6 @@ export default class CreateCustomers extends Component {
                                         </select>
                                     </div>
                                 </div>
-                                {/* <div className="row justify-content-end">
-                                    <div className="col-2 form-group">
-                                        <label>お部屋数</label>
-                                        <input
-                                            type="text"
-                                            required
-                                            className="form-control"
-                                            readOnly
-                                            value={this.state.room}
-                                        />
-                                    </div>
-                                    <div className="col-2 form-group">
-                                        <label>お部屋番号</label>
-                                        <input
-                                            type="text"
-                                            required
-                                            className="form-control"
-                                            readOnly
-                                            value={this.state.room}
-                                        />
-                                    </div>
-                                </div> */}
                                 <label>ご要望記入欄</label>
                                 <textarea
                                 className="form-control"
