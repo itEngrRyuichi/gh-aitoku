@@ -5,13 +5,33 @@ export default class FloorMap extends Component {
         super(props);
 
         this.state = {
+            rooms: ['101', '301', '302', '305', '307', '308', '401', '405', '403']
         };
+
+        this.roomClick = this.roomClick.bind(this);
 
     }
 
     componentDidMount() {
         this.thirdFloor();
         this.forthFloor();
+    }
+
+    roomClick(room) {
+        console.log(room);
+    }
+
+    StyleFill(ctx) {
+        ctx.fillStyle = '#ffb74d';
+        ctx.fill();
+        ctx.lineWidth = 3;
+        ctx.stroke(); 
+        ctx.fillStyle = 'white';
+    }
+
+    StyleStroke(ctx) {
+        ctx.stroke(); 
+        ctx.fillStyle = 'black';
     }
 
     thirdFloor() {
@@ -42,41 +62,35 @@ export default class FloorMap extends Component {
         ctx.lineTo(230, 230);
         ctx.lineTo(50, 230);
         ctx.closePath();
-        ctx.lineWidth = boldLine;
-        ctx.stroke();
-
+        this.state.rooms.includes('301') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
         ctx.font = '25px Arial';
-        ctx.fillText('301', 70, 100);
+        ctx.fillText('301', 70, 100);
 
         // 302
         ctx.beginPath();
         ctx.moveTo(230, 50);
-        ctx.lineTo(380, 50);
-        ctx.lineTo(380, 230);
+        ctx.lineTo(410, 50);
+        ctx.lineTo(410, 230);
         ctx.lineTo(230, 230);
         ctx.closePath();
-        ctx.lineWidth = boldLine;
-        ctx.stroke();
-
+        this.state.rooms.includes('302') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
         ctx.font = '25px Arial';
         ctx.fillText('302', 250, 100);
 
         // 303
         ctx.beginPath();
-        ctx.moveTo(380, 50);
+        ctx.moveTo(410, 50);
         ctx.lineTo(560, 50);
         ctx.lineTo(560, 80);
         ctx.lineTo(590, 90);
         ctx.lineTo(590, 200);
         ctx.lineTo(560, 200);
         ctx.lineTo(560, 230);
-        ctx.lineTo(380, 230);
+        ctx.lineTo(410, 230);
         ctx.closePath();
-        ctx.lineWidth = boldLine;
-        ctx.stroke();
-
+        this.state.rooms.includes('303') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
         ctx.font = '25px Arial';
-        ctx.fillText('303', 400, 100);
+        ctx.fillText('303', 430, 100);
 
         // 305
         ctx.beginPath();
@@ -89,9 +103,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(560, 200);
         ctx.lineTo(590, 200);
         ctx.closePath();
-        ctx.lineWidth = boldLine;
-        ctx.stroke();
-
+        this.state.rooms.includes('305') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
         ctx.font = '25px Arial';
         ctx.fillText('305', 610, 140);
 
@@ -102,11 +114,19 @@ export default class FloorMap extends Component {
         ctx.lineTo(620, 530);
         ctx.lineTo(395, 530);
         ctx.closePath();
-        ctx.lineWidth = boldLine;
-        ctx.stroke();
-
+        this.state.rooms.includes('306') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
         ctx.font = '25px Arial';
         ctx.fillText('306', 415, 430);
+        // 308
+        ctx.beginPath();
+        ctx.moveTo(230, 530);
+        ctx.lineTo(395, 530);
+        ctx.lineTo(395, 680);
+        ctx.lineTo(230, 680);
+        ctx.closePath();
+        this.state.rooms.includes('308') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
+        ctx.font = '25px Arial';
+        ctx.fillText('308', 250, 580);
 
         // 307
         ctx.beginPath();
@@ -115,24 +135,10 @@ export default class FloorMap extends Component {
         ctx.lineTo(650, 680);
         ctx.lineTo(395, 680);
         ctx.closePath();
-        ctx.lineWidth = boldLine;
-        ctx.stroke();
-
+        this.state.rooms.includes('307') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
         ctx.font = '25px Arial';
         ctx.fillText('307', 415, 580);
 
-        // 308
-        ctx.beginPath();
-        ctx.moveTo(230, 530);
-        ctx.lineTo(395, 530);
-        ctx.lineTo(395, 680);
-        ctx.lineTo(230, 680);
-        ctx.closePath();
-        ctx.lineWidth = boldLine;
-        ctx.stroke();
-
-        ctx.font = '25px Arial';
-        ctx.fillText('308', 250, 580);
 
         // wc1
         ctx.beginPath();
@@ -315,41 +321,35 @@ export default class FloorMap extends Component {
         ctx.lineTo(230, 230);
         ctx.lineTo(50, 230);
         ctx.closePath();
-        ctx.lineWidth = boldLine;
-        ctx.stroke();
-
+        this.state.rooms.includes('401') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
         ctx.font = '25px Arial';
         ctx.fillText('401', 70, 100);
 
         // 402
         ctx.beginPath();
         ctx.moveTo(230, 50);
-        ctx.lineTo(380, 50);
-        ctx.lineTo(380, 230);
+        ctx.lineTo(410, 50);
+        ctx.lineTo(410, 230);
         ctx.lineTo(230, 230);
         ctx.closePath();
-        ctx.lineWidth = boldLine;
-        ctx.stroke();
-
+        this.state.rooms.includes('402') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
         ctx.font = '25px Arial';
         ctx.fillText('402', 250, 100);
 
         // 403
         ctx.beginPath();
-        ctx.moveTo(380, 50);
+        ctx.moveTo(410, 50);
         ctx.lineTo(560, 50);
         ctx.lineTo(560, 80);
         ctx.lineTo(590, 90);
         ctx.lineTo(590, 200);
         ctx.lineTo(560, 200);
         ctx.lineTo(560, 230);
-        ctx.lineTo(380, 230);
+        ctx.lineTo(410, 230);
         ctx.closePath();
-        ctx.lineWidth = boldLine;
-        ctx.stroke();
-
+        this.state.rooms.includes('403') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
         ctx.font = '25px Arial';
-        ctx.fillText('403', 400, 100);
+        ctx.fillText('403', 430, 100);
 
         // 405
         ctx.beginPath();
@@ -362,9 +362,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(560, 200);
         ctx.lineTo(590, 200);
         ctx.closePath();
-        ctx.lineWidth = boldLine;
-        ctx.stroke();
-
+        this.state.rooms.includes('405') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
         ctx.font = '25px Arial';
         ctx.fillText('405', 610, 140);
 
