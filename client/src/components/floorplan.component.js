@@ -22,8 +22,10 @@ export default class FloorMap extends Component {
         const Line = 1;
         const tinyLine = 0.5;
 
-        canvas.width = window.innerWidth / 3 * 2;
-        canvas.height = window.innerHeight;
+        canvas.width = 1000;
+        canvas.height = 1000;
+        canvas.style.width  = '600px';
+        canvas.style.height = '600px';
         
         ctx.strokeStyle = 'black';
 
@@ -93,7 +95,46 @@ export default class FloorMap extends Component {
         ctx.font = '25px Arial';
         ctx.fillText('305', 610, 140);
 
-        // wc
+        // 306
+        ctx.beginPath();
+        ctx.moveTo(395, 380);
+        ctx.lineTo(620, 380);
+        ctx.lineTo(620, 530);
+        ctx.lineTo(395, 530);
+        ctx.closePath();
+        ctx.lineWidth = boldLine;
+        ctx.stroke();
+
+        ctx.font = '25px Arial';
+        ctx.fillText('306', 415, 430);
+
+        // 307
+        ctx.beginPath();
+        ctx.moveTo(395, 530);
+        ctx.lineTo(650, 530);
+        ctx.lineTo(650, 680);
+        ctx.lineTo(395, 680);
+        ctx.closePath();
+        ctx.lineWidth = boldLine;
+        ctx.stroke();
+
+        ctx.font = '25px Arial';
+        ctx.fillText('307', 415, 580);
+
+        // 308
+        ctx.beginPath();
+        ctx.moveTo(230, 530);
+        ctx.lineTo(395, 530);
+        ctx.lineTo(395, 680);
+        ctx.lineTo(230, 680);
+        ctx.closePath();
+        ctx.lineWidth = boldLine;
+        ctx.stroke();
+
+        ctx.font = '25px Arial';
+        ctx.fillText('308', 250, 580);
+
+        // wc1
         ctx.beginPath();
         ctx.moveTo(620, 200);
         ctx.lineTo(740, 200);
@@ -103,6 +144,16 @@ export default class FloorMap extends Component {
         ctx.lineTo(680, 290);
         ctx.lineTo(680, 260);
         ctx.lineTo(620, 260);
+        ctx.closePath();
+        ctx.lineWidth = Line;
+        ctx.stroke();
+
+        // wc2
+        ctx.beginPath();
+        ctx.moveTo(350, 380);
+        ctx.lineTo(395, 380);
+        ctx.lineTo(395, 500);
+        ctx.lineTo(350, 500);
         ctx.closePath();
         ctx.lineWidth = Line;
         ctx.stroke();
@@ -117,7 +168,7 @@ export default class FloorMap extends Component {
         ctx.lineWidth = Line;
         ctx.stroke();
 
-        // steps
+        // steps1
         ctx.beginPath();
         ctx.moveTo(50, 230);
         ctx.lineTo(200, 230);
@@ -162,6 +213,78 @@ export default class FloorMap extends Component {
         ctx.lineTo(125, 350);
         ctx.lineWidth = tinyLine;
         ctx.stroke();
+
+        // steps2
+        ctx.beginPath();
+        ctx.moveTo(230, 410);
+        ctx.lineTo(275, 410);
+        ctx.lineTo(275, 530);
+        ctx.lineTo(230, 530);
+        ctx.closePath();
+        ctx.lineWidth = Line;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(230, 425);
+        ctx.lineTo(275, 425);
+        ctx.lineWidth = tinyLine;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(230, 440);
+        ctx.lineTo(275, 440);
+        ctx.lineWidth = tinyLine;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(230, 455);
+        ctx.lineTo(275, 455);
+        ctx.lineWidth = tinyLine;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(230, 470);
+        ctx.lineTo(275, 470);
+        ctx.lineWidth = tinyLine;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(230, 485);
+        ctx.lineTo(275, 485);
+        ctx.lineWidth = tinyLine;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(230, 500);
+        ctx.lineTo(275, 500);
+        ctx.lineWidth = tinyLine;
+        ctx.stroke();
+
+        ctx.beginPath();
+        ctx.moveTo(230, 515);
+        ctx.lineTo(275, 515);
+        ctx.lineWidth = tinyLine;
+        ctx.stroke();
+
+        // corridor
+        ctx.beginPath();
+        ctx.moveTo(50, 50);
+        ctx.lineTo(560, 50);
+        ctx.lineTo(560, 80);
+        ctx.lineTo(740, 140);
+        ctx.lineTo(740, 350);
+        ctx.lineTo(350, 350);
+        ctx.lineTo(350, 380);
+        ctx.lineTo(620, 380);
+        ctx.lineTo(620, 530);
+        ctx.lineTo(650, 530);
+        ctx.lineTo(650, 680);
+        ctx.lineTo(230, 680);
+        ctx.lineTo(230, 350);
+        ctx.lineTo(50, 350);
+        ctx.closePath();
+        ctx.lineWidth = boldLine;
+        ctx.stroke();
     }
 
     forthFloor() {
@@ -172,8 +295,10 @@ export default class FloorMap extends Component {
         const Line = 1;
         const tinyLine = 0.5;
 
-        canvas.width = window.innerWidth / 3 * 2;
-        canvas.height = window.innerHeight / 3 * 2;
+        canvas.width = 1000;
+        canvas.height = 500;
+        canvas.style.width  = '600px';
+        canvas.style.height = '300px';
         
         ctx.strokeStyle = 'black';
 
@@ -336,15 +461,18 @@ export default class FloorMap extends Component {
     render() {
         
         return(
-            <>
-                <label>3階 平面図</label>
-                <br />
-                <canvas ref='third'/>
-                <br />
-                <label>4階 平面図</label>
-                <br />
-                <canvas className="py-5" ref='forth'/>
-            </>
+            <div className="row py-2">
+                <div className="col-lg-6 col-12">
+                    <label>3階</label>
+                    <br />
+                    <canvas ref='third'/>
+                </div>
+                <div className="col-lg-6 col-12">
+                    <label>4階</label>
+                    <br />
+                    <canvas ref='forth'/>
+                </div>
+            </div>
         )
     }
 }

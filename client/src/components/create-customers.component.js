@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 
 import AdminNavigation from "./navbar.component";
+import FloorMap from "./floorplan.component";
 
 import axios from 'axios';
 
@@ -402,7 +403,7 @@ export default class CreateCustomers extends Component {
         const msDiff = new Date(this.state.checkout).getTime() - new Date(this.state.checkin).getTime();
         const duration = Math.floor(msDiff / (1000 * 60 * 60 * 24));
         return (
-            <div className="col-8">
+            <div>
                 <label className="py-4">料金内訳 -{this.state.food}-</label>
                 <table className="table uchiwake">
                     <thead className="thead-light">
@@ -456,9 +457,10 @@ export default class CreateCustomers extends Component {
 
     roomList() {
         return (
-            <div className="col-2">
+            <div>
                 <label className="py-4">部屋割り</label>
-                <h1>Hello World</h1>
+                <br />
+                <FloorMap />
             </div>
         );
     }
@@ -623,7 +625,7 @@ export default class CreateCustomers extends Component {
                         <div className="form-group pb-4">
                             <input type="submit" value="予約" className="btn btn-outline-secondary" />
                         </div>
-                        <div className="row py-2 border-bottom">
+                        <div className="py-2 border-bottom">
                             { this.priceList() }
                             { this.roomList() }
                         </div>
