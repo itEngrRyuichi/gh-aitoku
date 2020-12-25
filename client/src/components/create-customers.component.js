@@ -31,6 +31,7 @@ export default class CreateCustomers extends Component {
         this.onChangeFood = this.onChangeFood.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.onChangeRoom = this.onChangeRoom.bind(this);
         /* this.getReserveRooms = this.getReserveRooms.bind(this);
         this.getAvailableRooms = this.getAvailableRooms.bind(this);
         this.onChangeRoom = this.onChangeRoom.bind(this); */
@@ -68,16 +69,23 @@ export default class CreateCustomers extends Component {
         this.getStayMiddle();
         this.getStayChild();
         this.getStayBaby();
+        this.onChangeRoom();
         
         let check_in = new Date();
         let check_out = new Date();
         const checkin = new Date(check_in.setDate(check_in.getDate() + 3));
         const checkout = new Date(check_out.setDate(check_out.getDate() + 4));
-        console.log(checkin, checkout);
         this.setState({
             checkin: new Date(checkin).toISOString().split('T')[0],
             checkout: new Date(checkout).toISOString().split('T')[0]
         });
+
+        // get rooms
+        const adult_no = this.state.adult_no;;
+        const middle_no = this.state.middle_no;
+        const child_no = this.state.child_no;
+        const baby_no = this.state.baby_no;
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
     }
 
     getBreakfastAdult() {
@@ -191,27 +199,47 @@ export default class CreateCustomers extends Component {
     }
 
     onChangeAdult(e) {
+        const adult_no = e.target.value;
+        const middle_no = this.state.middle_no;
+        const child_no = this.state.child_no;
+        const baby_no = this.state.baby_no;
         this.setState({
             adult_no: e.target.value
         });
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
     }
 
     onChangeMiddle(e) {
+        const adult_no = this.state.adult_no;
+        const middle_no = e.target.value;
+        const child_no = this.state.child_no;
+        const baby_no = this.state.baby_no;
         this.setState({
             middle_no: e.target.value
         });
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
     }
 
     onChangeChild(e) {
+        const adult_no = this.state.adult_no;
+        const middle_no = this.state.middle_no;
+        const child_no = e.target.value;
+        const baby_no = this.state.baby_no;
         this.setState({
             child_no: e.target.value
         });
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
     }
 
     onChangeBaby(e) {
+        const adult_no = this.state.adult_no;
+        const middle_no = this.state.middle_no;
+        const child_no = this.state.child_no;
+        const baby_no = e.target.value;
         this.setState({
             baby_no: e.target.value
         });
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
     }
 
     onChangeArrival(e) {
@@ -277,8 +305,8 @@ export default class CreateCustomers extends Component {
             .then(res => console.log(res.data) + setTimeout(function(){ window.location = '/admin';}, 100));
     }
 
-    // step 1
-    /* getReserveRooms() {
+    /* // step 1
+    getReserveRooms() {
         const params = {
             checkin: this.state.checkin,
             checkout: this.state.checkout
@@ -322,47 +350,55 @@ export default class CreateCustomers extends Component {
                 return self.indexOf(x) === i;
             });
             this.setState({
-                rooms: availableRooms,
-                room: room
+                rooms: availableRooms
             });
         });
     } */
+
+    /* onChangeRoom() {
+        this.setState({
+            rooms: ['301', '303']
+        })
+    } */
     
-    /* onChangeRoom(adult_no, middle_no, child_no, baby_no) {
+    onChangeRoom(adult_no, middle_no, child_no, baby_no) {
         const meanValue = adult_no*1.0 + middle_no*0.75 + child_no*0.5 + baby_no*0;
 
         if ( meanValue <13 ){
             const result = '4room * 3';
             this.setState({
-                room: 3
+                rooms: ['301', '302', '303']
             })
             if( meanValue <11 ){
                 const result = '5room * 2 or 4room * 3';
                 this.setState({
-                    room: 2
+                    rooms: ['307', '308']
                 })
                 if( meanValue <10 ){
                     const result = '5 + 4room * 1 or 4room * 3';
                     this.setState({
-                        room: 2
+                        rooms: ['301', '307']
                     })
                     if( meanValue <9 ){
                         const result = '4room * 2';
                         this.setState({
-                            room: 2
+                            rooms: ['301', '302']
                         })
                         if( meanValue <6 ){
                             const result = '5room * 1 or 4room * 2';
                             this.setState({
-                                room: 1
+                                rooms: ['307']
                             })
                             if( meanValue <5 ){
                                 const result = '4room * 1';
                                 this.setState({
-                                    room: 1
+                                    rooms: ['301']
                                 })
                                 if( meanValue <3 ){
                                     const result = '2room * 1';
+                                    this.setState({
+                                        rooms: ['305']
+                                    })
                                     if( meanValue <1 ){
                                         const result = '子供だけでは宿泊できません';
                                         this.setState({
@@ -373,31 +409,22 @@ export default class CreateCustomers extends Component {
                                             this.setState({
                                                 room: '0以下'
                                             })
-                                            return console.log(result);
                                         }
-                                        return console.log(result);
                                     }
-                                    return console.log(result);
                                 }
-                                return console.log(result);
                             }
-                            return console.log(result);
                         }
-                        return console.log(result);
                     }
-                    return console.log(result);
                 }
-                return console.log(result);
             }
-            return console.log(result);
+            
         } else {
             const result = 'over';
             this.setState({
                 room: 'over'
-            })
-            return console.log(result);
+            });
         }
-    } */
+    }
 
     priceList() {
         const msDiff = new Date(this.state.checkout).getTime() - new Date(this.state.checkin).getTime();
@@ -456,11 +483,15 @@ export default class CreateCustomers extends Component {
     }
 
     roomList() {
+        const room = this.state.rooms;
         return (
             <div>
                 <label className="py-4">部屋割り</label>
                 <br />
-                <FloorMap />
+                <p>{this.state.rooms}</p>
+                <FloorMap
+                    room={room}
+                />
             </div>
         );
     }

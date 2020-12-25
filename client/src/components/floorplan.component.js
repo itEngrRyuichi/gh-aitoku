@@ -5,10 +5,8 @@ export default class FloorMap extends Component {
         super(props);
 
         this.state = {
-            rooms: ['101', '301', '302', '305', '307', '308', '401', '405', '403']
+            rooms: this.props.room
         };
-
-        this.roomClick = this.roomClick.bind(this);
 
     }
 
@@ -17,8 +15,14 @@ export default class FloorMap extends Component {
         this.forthFloor();
     }
 
-    roomClick(room) {
-        console.log(room);
+    async componentDidUpdate(prevState) {
+        if(prevState.room !== this.props.room) {
+            await this.setState({
+                rooms: this.props.room
+            });
+            this.thirdFloor();
+            this.forthFloor();
+        }
     }
 
     StyleFill(ctx) {
@@ -62,7 +66,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(230, 230);
         ctx.lineTo(50, 230);
         ctx.closePath();
-        this.state.rooms.includes('301') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
+        this.state.rooms.includes('301') === true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
         ctx.font = '25px Arial';
         ctx.fillText('301', 70, 100);
 
@@ -73,7 +77,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(410, 230);
         ctx.lineTo(230, 230);
         ctx.closePath();
-        this.state.rooms.includes('302') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
+        this.state.rooms.includes('302') === true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
         ctx.font = '25px Arial';
         ctx.fillText('302', 250, 100);
 
@@ -88,7 +92,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(560, 230);
         ctx.lineTo(410, 230);
         ctx.closePath();
-        this.state.rooms.includes('303') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
+        this.state.rooms.includes('303') === true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
         ctx.font = '25px Arial';
         ctx.fillText('303', 430, 100);
 
@@ -103,7 +107,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(560, 200);
         ctx.lineTo(590, 200);
         ctx.closePath();
-        this.state.rooms.includes('305') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
+        this.state.rooms.includes('305') === true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
         ctx.font = '25px Arial';
         ctx.fillText('305', 610, 140);
 
@@ -114,7 +118,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(620, 530);
         ctx.lineTo(395, 530);
         ctx.closePath();
-        this.state.rooms.includes('306') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
+        this.state.rooms.includes('306') === true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
         ctx.font = '25px Arial';
         ctx.fillText('306', 415, 430);
         // 308
@@ -124,7 +128,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(395, 680);
         ctx.lineTo(230, 680);
         ctx.closePath();
-        this.state.rooms.includes('308') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
+        this.state.rooms.includes('308') === true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
         ctx.font = '25px Arial';
         ctx.fillText('308', 250, 580);
 
@@ -135,7 +139,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(650, 680);
         ctx.lineTo(395, 680);
         ctx.closePath();
-        this.state.rooms.includes('307') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
+        this.state.rooms.includes('307') === true ? this.StyleFill(ctx) : this.StyleStroke(ctx);
         ctx.font = '25px Arial';
         ctx.fillText('307', 415, 580);
 
@@ -321,7 +325,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(230, 230);
         ctx.lineTo(50, 230);
         ctx.closePath();
-        this.state.rooms.includes('401') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
+        this.state.rooms.includes('401') === true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
         ctx.font = '25px Arial';
         ctx.fillText('401', 70, 100);
 
@@ -332,7 +336,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(410, 230);
         ctx.lineTo(230, 230);
         ctx.closePath();
-        this.state.rooms.includes('402') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
+        this.state.rooms.includes('402') === true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
         ctx.font = '25px Arial';
         ctx.fillText('402', 250, 100);
 
@@ -347,7 +351,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(560, 230);
         ctx.lineTo(410, 230);
         ctx.closePath();
-        this.state.rooms.includes('403') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
+        this.state.rooms.includes('403') === true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
         ctx.font = '25px Arial';
         ctx.fillText('403', 430, 100);
 
@@ -362,7 +366,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(560, 200);
         ctx.lineTo(590, 200);
         ctx.closePath();
-        this.state.rooms.includes('405') == true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
+        this.state.rooms.includes('405') === true ? this.StyleFill(ctx) : this.StyleStroke(ctx); 
         ctx.font = '25px Arial';
         ctx.fillText('405', 610, 140);
 
