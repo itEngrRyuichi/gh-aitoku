@@ -11,11 +11,6 @@ export default class FloorMap extends Component {
 
     }
 
-    componentDidMount() {
-        this.thirdFloor();
-        this.forthFloor();
-    }
-
     async componentDidUpdate(prevState) {
         if((prevState.room !== this.props.room ) || (prevState.clickable !== this.props.clickable)) {
             await this.setState({
@@ -63,8 +58,8 @@ export default class FloorMap extends Component {
         ctx.shadowBlur = 20;
 
         // 301
+        // canvas.addEventListener('click', function() { console.log('301') }, false);
         ctx.beginPath();
-       
         ctx.moveTo(50, 50);
         ctx.lineTo(230, 50);
         ctx.lineTo(230, 230);
@@ -315,6 +310,7 @@ export default class FloorMap extends Component {
 
     forthFloor() {
         const canvas = this.refs.forth;
+        canvas.addEventListener('click', function() { console.log('4th') }, false);
         const ctx = canvas.getContext("2d");
 
         const boldLine = 3;

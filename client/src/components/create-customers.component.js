@@ -503,7 +503,7 @@ export default class CreateCustomers extends Component {
                 {this.state.manualRoomSelector === true ?
                 // select rooms manually
                 <FloorMap
-                    room={['301', '305', '306', '307', '401', '308']}
+                    room={['301', '306', '307', '401', '308']}
                     clickable={true}
                 />
                 :
