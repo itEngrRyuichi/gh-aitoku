@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import Form from 'react-bootstrap/Form';
 
 import AdminNavigation from "./navbar.component";
 import FloorMap from "./floorplan.component";
@@ -32,6 +33,8 @@ export default class CreateCustomers extends Component {
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onChangeRoom = this.onChangeRoom.bind(this);
+        this.selectedRoom = this.selectedRoom.bind(this);
+        this.handleChangeManualRoomSelector = this.handleChangeManualRoomSelector.bind(this);
         /* this.getReserveRooms = this.getReserveRooms.bind(this);
         this.getAvailableRooms = this.getAvailableRooms.bind(this);
         this.onChangeRoom = this.onChangeRoom.bind(this); */
@@ -60,6 +63,7 @@ export default class CreateCustomers extends Component {
 
             // original
             reserveRooms: [],
+            manualRoomSelector: false
         }
     }
 
@@ -277,6 +281,10 @@ export default class CreateCustomers extends Component {
         });
     }
 
+    handleChangeManualRoomSelector(e){
+        this.setState({ manualRoomSelector: e.target.checked });
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -354,12 +362,6 @@ export default class CreateCustomers extends Component {
             });
         });
     } */
-
-    /* onChangeRoom() {
-        this.setState({
-            rooms: ['301', '303']
-        })
-    } */
     
     onChangeRoom(adult_no, middle_no, child_no, baby_no) {
         const meanValue = adult_no*1.0 + middle_no*0.75 + child_no*0.5 + baby_no*0;
@@ -372,7 +374,7 @@ export default class CreateCustomers extends Component {
             if( meanValue <11 ){
                 const result = '5room * 2 or 4room * 3';
                 this.setState({
-                    rooms: ['307', '308']
+                    rooms: ['307', '306']
                 })
                 if( meanValue <10 ){
                     const result = '5 + 4room * 1 or 4room * 3';
@@ -402,12 +404,12 @@ export default class CreateCustomers extends Component {
                                     if( meanValue <1 ){
                                         const result = '子供だけでは宿泊できません';
                                         this.setState({
-                                            room: '子供だけでは宿泊できません'
+                                            rooms: ['']
                                         })
                                         if( meanValue <=0 ){
                                             const result = '0以下';
                                             this.setState({
-                                                room: '0以下'
+                                                rooms: ['']
                                             })
                                         }
                                     }
@@ -421,9 +423,13 @@ export default class CreateCustomers extends Component {
         } else {
             const result = 'over';
             this.setState({
-                room: 'over'
+                rooms: ['']
             });
         }
+    }
+
+    selectedRoom() {
+        console.log('Hello World');
     }
 
     priceList() {
@@ -487,11 +493,26 @@ export default class CreateCustomers extends Component {
         return (
             <div>
                 <label className="py-4">部屋割り</label>
-                <br />
-                <p>{this.state.rooms}</p>
+                <Form.Check
+                    type="switch"
+                    id="custom-select-room"
+                    label="手動で部屋を選ぶ"
+                    checked={this.state.manualRoomSelector}
+                    onChange={this.handleChangeManualRoomSelector}
+                />
+                {this.state.manualRoomSelector === true ?
+                // select rooms manually
+                <FloorMap
+                    room={['301', '305', '306', '307', '401', '308']}
+                    clickable={true}
+                />
+                :
+                // select rooms automatically
                 <FloorMap
                     room={room}
+                    clickable={false}
                 />
+                }
             </div>
         );
     }
@@ -564,13 +585,15 @@ export default class CreateCustomers extends Component {
                                     </div>
                                 </div>
                                 <label>人数</label>
-                                <div className="row border p-3 mb-3 m-1 ninzu">
+                                <div className="row border p-2 mb-3 m-1 ninzu">
                                     <div className="col-3 form-group">
                                         <label>大人(13-)</label>
                                         <input
                                             type="number"
                                             required
                                             className="form-control"
+                                            min="1"
+                                            max="13"
                                             value={this.state.adult_no}
                                             onChange={this.onChangeAdult}
                                         />
@@ -581,6 +604,8 @@ export default class CreateCustomers extends Component {
                                             type="number"
                                             required
                                             className="form-control"
+                                            min="0"
+                                            max="13"
                                             value={this.state.middle_no}
                                             onChange={this.onChangeMiddle}
                                         />
@@ -591,6 +616,8 @@ export default class CreateCustomers extends Component {
                                             type="number"
                                             required
                                             className="form-control"
+                                            min="0"
+                                            max="13"
                                             value={this.state.child_no}
                                             onChange={this.onChangeChild}
                                         />
@@ -601,6 +628,8 @@ export default class CreateCustomers extends Component {
                                             type="number"
                                             required
                                             className="form-control"
+                                            min="0"
+                                            max="13"
                                             value={this.state.baby_no}
                                             onChange={this.onChangeBaby}
                                         />
