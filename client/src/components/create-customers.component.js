@@ -1,6 +1,8 @@
 import React, { Component, Fragment } from 'react';
+import Form from 'react-bootstrap/Form';
 
 import AdminNavigation from "./navbar.component";
+import FloorMap from "./floorplan.component";
 
 import axios from 'axios';
 
@@ -30,6 +32,9 @@ export default class CreateCustomers extends Component {
         this.onChangeFood = this.onChangeFood.bind(this);
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
+        this.onChangeRoom = this.onChangeRoom.bind(this);
+        this.selectedRoom = this.selectedRoom.bind(this);
+        this.handleChangeManualRoomSelector = this.handleChangeManualRoomSelector.bind(this);
         /* this.getReserveRooms = this.getReserveRooms.bind(this);
         this.getAvailableRooms = this.getAvailableRooms.bind(this);
         this.onChangeRoom = this.onChangeRoom.bind(this); */
@@ -58,6 +63,7 @@ export default class CreateCustomers extends Component {
 
             // original
             reserveRooms: [],
+            manualRoomSelector: false
         }
     }
 
@@ -67,22 +73,23 @@ export default class CreateCustomers extends Component {
         this.getStayMiddle();
         this.getStayChild();
         this.getStayBaby();
-        /* const adult_no = this.state.adult_no;
-        const middle_no = this.state.middle_no;
-        const child_no = this.state.child_no;
-        const baby_no = this.state.baby_no; */
+        this.onChangeRoom();
         
         let check_in = new Date();
         let check_out = new Date();
         const checkin = new Date(check_in.setDate(check_in.getDate() + 3));
         const checkout = new Date(check_out.setDate(check_out.getDate() + 4));
-        console.log(checkin, checkout);
         this.setState({
             checkin: new Date(checkin).toISOString().split('T')[0],
             checkout: new Date(checkout).toISOString().split('T')[0]
         });
-        
-        /* this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
+
+        // get rooms
+        const adult_no = this.state.adult_no;;
+        const middle_no = this.state.middle_no;
+        const child_no = this.state.child_no;
+        const baby_no = this.state.baby_no;
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
     }
 
     getBreakfastAdult() {
@@ -196,47 +203,47 @@ export default class CreateCustomers extends Component {
     }
 
     onChangeAdult(e) {
+        const adult_no = e.target.value;
+        const middle_no = this.state.middle_no;
+        const child_no = this.state.child_no;
+        const baby_no = this.state.baby_no;
         this.setState({
             adult_no: e.target.value
         });
-        /* const adult_no = e.target.value;
-        const middle_no = this.state.middle_no;
-        const child_no = this.state.child_no;
-        const baby_no = this.state.baby_no;
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
     }
 
     onChangeMiddle(e) {
-        this.setState({
-            middle_no: e.target.value
-        });
-        /* const adult_no = this.state.adult_no;
+        const adult_no = this.state.adult_no;
         const middle_no = e.target.value;
         const child_no = this.state.child_no;
         const baby_no = this.state.baby_no;
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
+        this.setState({
+            middle_no: e.target.value
+        });
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
     }
 
     onChangeChild(e) {
-        this.setState({
-            child_no: e.target.value
-        });
-        /* const adult_no = this.state.adult_no;
+        const adult_no = this.state.adult_no;
         const middle_no = this.state.middle_no;
         const child_no = e.target.value;
         const baby_no = this.state.baby_no;
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
+        this.setState({
+            child_no: e.target.value
+        });
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
     }
 
     onChangeBaby(e) {
-        this.setState({
-            baby_no: e.target.value
-        });
-        /* const adult_no = this.state.adult_no;
+        const adult_no = this.state.adult_no;
         const middle_no = this.state.middle_no;
         const child_no = this.state.child_no;
         const baby_no = e.target.value;
-        this.onChangeRoom(adult_no, middle_no, child_no, baby_no); */
+        this.setState({
+            baby_no: e.target.value
+        });
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
     }
 
     onChangeArrival(e) {
@@ -274,6 +281,10 @@ export default class CreateCustomers extends Component {
         });
     }
 
+    handleChangeManualRoomSelector(e){
+        this.setState({ manualRoomSelector: e.target.checked });
+    }
+
     onSubmit(e) {
         e.preventDefault();
 
@@ -302,8 +313,8 @@ export default class CreateCustomers extends Component {
             .then(res => console.log(res.data) + setTimeout(function(){ window.location = '/admin';}, 100));
     }
 
-    // step 1
-    /* getReserveRooms() {
+    /* // step 1
+    getReserveRooms() {
         const params = {
             checkin: this.state.checkin,
             checkout: this.state.checkout
@@ -347,88 +358,85 @@ export default class CreateCustomers extends Component {
                 return self.indexOf(x) === i;
             });
             this.setState({
-                rooms: availableRooms,
-                room: room
+                rooms: availableRooms
             });
         });
     } */
     
-    /* onChangeRoom(adult_no, middle_no, child_no, baby_no) {
+    onChangeRoom(adult_no, middle_no, child_no, baby_no) {
         const meanValue = adult_no*1.0 + middle_no*0.75 + child_no*0.5 + baby_no*0;
 
         if ( meanValue <13 ){
             const result = '4room * 3';
             this.setState({
-                room: 3
+                rooms: ['301', '302', '303']
             })
             if( meanValue <11 ){
                 const result = '5room * 2 or 4room * 3';
                 this.setState({
-                    room: 2
+                    rooms: ['307', '306']
                 })
                 if( meanValue <10 ){
                     const result = '5 + 4room * 1 or 4room * 3';
                     this.setState({
-                        room: 2
+                        rooms: ['301', '307']
                     })
                     if( meanValue <9 ){
                         const result = '4room * 2';
                         this.setState({
-                            room: 2
+                            rooms: ['301', '302']
                         })
                         if( meanValue <6 ){
                             const result = '5room * 1 or 4room * 2';
                             this.setState({
-                                room: 1
+                                rooms: ['307']
                             })
                             if( meanValue <5 ){
                                 const result = '4room * 1';
                                 this.setState({
-                                    room: 1
+                                    rooms: ['301']
                                 })
                                 if( meanValue <3 ){
                                     const result = '2room * 1';
+                                    this.setState({
+                                        rooms: ['305']
+                                    })
                                     if( meanValue <1 ){
                                         const result = '子供だけでは宿泊できません';
                                         this.setState({
-                                            room: '子供だけでは宿泊できません'
+                                            rooms: ['']
                                         })
                                         if( meanValue <=0 ){
                                             const result = '0以下';
                                             this.setState({
-                                                room: '0以下'
+                                                rooms: ['']
                                             })
-                                            return console.log(result);
                                         }
-                                        return console.log(result);
                                     }
-                                    return console.log(result);
                                 }
-                                return console.log(result);
                             }
-                            return console.log(result);
                         }
-                        return console.log(result);
                     }
-                    return console.log(result);
                 }
-                return console.log(result);
             }
-            return console.log(result);
+            
         } else {
             const result = 'over';
             this.setState({
-                room: 'over'
-            })
-            return console.log(result);
+                rooms: ['']
+            });
         }
-    } */
+    }
+
+    selectedRoom() {
+        console.log('Hello World');
+    }
 
     priceList() {
         const msDiff = new Date(this.state.checkout).getTime() - new Date(this.state.checkin).getTime();
         const duration = Math.floor(msDiff / (1000 * 60 * 60 * 24));
         return (
-            <div className="col-8">
+            <div>
                 <label className="py-4">料金内訳 -{this.state.food}-</label>
                 <table className="table uchiwake">
                     <thead className="thead-light">
@@ -481,10 +489,30 @@ export default class CreateCustomers extends Component {
     }
 
     roomList() {
+        const room = this.state.rooms;
         return (
-            <div className="col-2">
+            <div>
                 <label className="py-4">部屋割り</label>
-
+                <Form.Check
+                    type="switch"
+                    id="custom-select-room"
+                    label="手動で部屋を選ぶ"
+                    checked={this.state.manualRoomSelector}
+                    onChange={this.handleChangeManualRoomSelector}
+                />
+                {this.state.manualRoomSelector === true ?
+                // select rooms manually
+                <FloorMap
+                    room={['301', '305', '306', '307', '401', '308']}
+                    clickable={true}
+                />
+                :
+                // select rooms automatically
+                <FloorMap
+                    room={room}
+                    clickable={false}
+                />
+                }
             </div>
         );
     }
@@ -557,13 +585,15 @@ export default class CreateCustomers extends Component {
                                     </div>
                                 </div>
                                 <label>人数</label>
-                                <div className="row border p-3 mb-3 m-1 ninzu">
+                                <div className="row border p-2 mb-3 m-1 ninzu">
                                     <div className="col-3 form-group">
                                         <label>大人(13-)</label>
                                         <input
                                             type="number"
                                             required
                                             className="form-control"
+                                            min="1"
+                                            max="13"
                                             value={this.state.adult_no}
                                             onChange={this.onChangeAdult}
                                         />
@@ -574,6 +604,8 @@ export default class CreateCustomers extends Component {
                                             type="number"
                                             required
                                             className="form-control"
+                                            min="0"
+                                            max="13"
                                             value={this.state.middle_no}
                                             onChange={this.onChangeMiddle}
                                         />
@@ -584,6 +616,8 @@ export default class CreateCustomers extends Component {
                                             type="number"
                                             required
                                             className="form-control"
+                                            min="0"
+                                            max="13"
                                             value={this.state.child_no}
                                             onChange={this.onChangeChild}
                                         />
@@ -594,6 +628,8 @@ export default class CreateCustomers extends Component {
                                             type="number"
                                             required
                                             className="form-control"
+                                            min="0"
+                                            max="13"
                                             value={this.state.baby_no}
                                             onChange={this.onChangeBaby}
                                         />
@@ -637,28 +673,6 @@ export default class CreateCustomers extends Component {
                                         </select>
                                     </div>
                                 </div>
-                                {/* <div className="row justify-content-end">
-                                    <div className="col-2 form-group">
-                                        <label>お部屋数</label>
-                                        <input
-                                            type="text"
-                                            required
-                                            className="form-control"
-                                            readOnly
-                                            value={this.state.room}
-                                        />
-                                    </div>
-                                    <div className="col-2 form-group">
-                                        <label>お部屋番号</label>
-                                        <input
-                                            type="text"
-                                            required
-                                            className="form-control"
-                                            readOnly
-                                            value={this.state.room}
-                                        />
-                                    </div>
-                                </div> */}
                                 <label>ご要望記入欄</label>
                                 <textarea
                                 className="form-control"
@@ -671,7 +685,7 @@ export default class CreateCustomers extends Component {
                         <div className="form-group pb-4">
                             <input type="submit" value="予約" className="btn btn-outline-secondary" />
                         </div>
-                        <div className="row py-2 border-bottom">
+                        <div className="py-2 border-bottom">
                             { this.priceList() }
                             { this.roomList() }
                         </div>
