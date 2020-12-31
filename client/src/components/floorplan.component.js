@@ -58,7 +58,6 @@ export default class FloorMap extends Component {
         ctx.shadowBlur = 20;
 
         // 301
-        // canvas.addEventListener('click', function() { console.log('301') }, false);
         ctx.beginPath();
         ctx.moveTo(50, 50);
         ctx.lineTo(230, 50);
@@ -98,7 +97,6 @@ export default class FloorMap extends Component {
         ctx.fillText('303', 430, 100);
         ctx.fillText('4人部屋', 430, 150);
 
-
         // 305
         ctx.beginPath();
         ctx.moveTo(590, 90);
@@ -114,7 +112,6 @@ export default class FloorMap extends Component {
         ctx.font = '25px Arial';
         ctx.fillText('305', 610, 140);
         ctx.fillText('2人部屋', 610, 180);
-
 
         // 306
         ctx.beginPath();
@@ -139,7 +136,6 @@ export default class FloorMap extends Component {
         ctx.font = '25px Arial';
         ctx.fillText('308', 250, 580);
         ctx.fillText('4人部屋', 250, 630);
-
 
         // 307
         ctx.beginPath();
@@ -310,7 +306,7 @@ export default class FloorMap extends Component {
 
     forthFloor() {
         const canvas = this.refs.forth;
-        canvas.addEventListener('click', function() { console.log('4th') }, false);
+        //  canvas.addEventListener('click', function() { console.log('4th') }, false);
         const ctx = canvas.getContext("2d");
 
         const boldLine = 3;

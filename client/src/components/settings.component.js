@@ -465,7 +465,10 @@ export default class Settings extends Component {
                         <hr />
                         <label><i className="far fa-check-square"></i> 部屋見取り図</label>
                         <br />
-                        <FloorMap room={['']}/>
+                        <FloorMap
+                            room={['']}
+                            clickable={false}
+                        />
                     </div>
                 </div>
             </Fragment>
