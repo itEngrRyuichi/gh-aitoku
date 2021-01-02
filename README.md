@@ -1,6 +1,6 @@
 # ゲストハウス愛徳専用ウェブサイト
 
-江越 龍一
+作成者 江越 龍一
 
 スケジュール画面
 ![image](./client/src/pics/screencapture-localhost-3000-admin-schedule-2020-12-03-18_49_06.png "image")
