@@ -1,5 +1,7 @@
 # ゲストハウス愛徳専用ウェブサイト
 
+部屋割り
+![image](./client/src/pics/chooseRoom.gif "image")
 作成者 江越 龍一
 
 スケジュール画面
