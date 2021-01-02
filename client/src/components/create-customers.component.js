@@ -5,6 +5,7 @@ import AdminNavigation from "./navbar.component";
 import FloorMap from "./floorplan.component";
 
 import axios from 'axios';
+import e from 'cors';
 
 export default class CreateCustomers extends Component {
     constructor(props) {
@@ -33,7 +34,6 @@ export default class CreateCustomers extends Component {
         this.onChangeDescription = this.onChangeDescription.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.onChangeRoom = this.onChangeRoom.bind(this);
-        this.selectedRoom = this.selectedRoom.bind(this);
         this.handleChangeManualRoomSelector = this.handleChangeManualRoomSelector.bind(this);
         /* this.getReserveRooms = this.getReserveRooms.bind(this);
         this.getAvailableRooms = this.getAvailableRooms.bind(this);
@@ -62,8 +62,22 @@ export default class CreateCustomers extends Component {
             description: '特になし',
 
             // original
-            reserveRooms: [],
-            manualRoomSelector: false
+            manualRoomSelector: false,
+            allRooms: [],
+            unavailableRooms: ['307', '401', '308'],
+            selectedRooms: {
+                '301': false,
+                '302': false,
+                '303': false,
+                '305': false,
+                '306': false,
+                '307': false,
+                '308': false,
+                '401': false,
+                '402': false,
+                '403': false,
+                '405': false
+            }
         }
     }
 
@@ -83,6 +97,15 @@ export default class CreateCustomers extends Component {
             checkin: new Date(checkin).toISOString().split('T')[0],
             checkout: new Date(checkout).toISOString().split('T')[0]
         });
+
+        // get all rooms
+        axios.get('https://guesthouseaitoku.herokuapp.com/rooms')
+        .then(response => {
+            this.setState({ allRooms: response.data })
+        })
+        .catch((error) => {
+            console.log(error);
+        })
 
         // get rooms
         const adult_no = this.state.adult_no;;
@@ -282,7 +305,49 @@ export default class CreateCustomers extends Component {
     }
 
     handleChangeManualRoomSelector(e){
-        this.setState({ manualRoomSelector: e.target.checked });
+        const adult_no = this.state.adult_no;
+        const middle_no = this.state.middle_no;
+        const child_no = this.state.child_no;
+        const baby_no = this.state.baby_no;
+        
+        this.state.manualRoomSelector === false ?
+        this.setState({
+            rooms: [],
+            selectedRooms: {
+                '301': false,
+                '302': false,
+                '303': false,
+                '305': false,
+                '306': false,
+                '307': false,
+                '308': false,
+                '401': false,
+                '402': false,
+                '403': false,
+                '405': false
+            }
+        })
+        :
+        this.onChangeRoom(adult_no, middle_no, child_no, baby_no);
+        
+        this.setState({manualRoomSelector: e.target.checked});
+    }
+
+    async handleChangeSelectRooms(roomNo, e){
+        var selectedRooms = this.state.selectedRooms;
+        selectedRooms[roomNo] = e.target.checked;
+        await this.setState({
+            selectedRooms: selectedRooms
+        });
+        var setRooms = [];
+        for (const [key, value] of Object.entries(selectedRooms)) {
+            if (value === true) {
+                setRooms.push(key)
+            }
+        }
+        this.setState({
+           rooms: setRooms 
+        });
     }
 
     onSubmit(e) {
@@ -367,47 +432,47 @@ export default class CreateCustomers extends Component {
         const meanValue = adult_no*1.0 + middle_no*0.75 + child_no*0.5 + baby_no*0;
 
         if ( meanValue <13 ){
-            const result = '4room * 3';
+            // const result = '4room * 3';
             this.setState({
                 rooms: ['301', '302', '303']
             })
             if( meanValue <11 ){
-                const result = '5room * 2 or 4room * 3';
+                // const result = '5room * 2 or 4room * 3';
                 this.setState({
                     rooms: ['307', '306']
                 })
                 if( meanValue <10 ){
-                    const result = '5 + 4room * 1 or 4room * 3';
+                    // const result = '5 + 4room * 1 or 4room * 3';
                     this.setState({
                         rooms: ['301', '307']
                     })
                     if( meanValue <9 ){
-                        const result = '4room * 2';
+                        // const result = '4room * 2';
                         this.setState({
                             rooms: ['301', '302']
                         })
                         if( meanValue <6 ){
-                            const result = '5room * 1 or 4room * 2';
+                            // const result = '5room * 1 or 4room * 2';
                             this.setState({
                                 rooms: ['307']
                             })
                             if( meanValue <5 ){
-                                const result = '4room * 1';
+                                // const result = '4room * 1';
                                 this.setState({
                                     rooms: ['301']
                                 })
                                 if( meanValue <3 ){
-                                    const result = '2room * 1';
+                                    // const result = '2room * 1';
                                     this.setState({
                                         rooms: ['305']
                                     })
                                     if( meanValue <1 ){
-                                        const result = '子供だけでは宿泊できません';
+                                        // const result = '子供だけでは宿泊できません';
                                         this.setState({
                                             rooms: ['']
                                         })
                                         if( meanValue <=0 ){
-                                            const result = '0以下';
+                                            // const result = '0以下';
                                             this.setState({
                                                 rooms: ['']
                                             })
@@ -426,10 +491,6 @@ export default class CreateCustomers extends Component {
                 rooms: ['']
             });
         }
-    }
-
-    selectedRoom() {
-        console.log('Hello World');
     }
 
     priceList() {
@@ -489,29 +550,61 @@ export default class CreateCustomers extends Component {
     }
 
     roomList() {
-        const room = this.state.rooms;
+        //const allRooms = this.state.allRooms;
         return (
             <div>
                 <label className="py-4">部屋割り</label>
                 <Form.Check
                     type="switch"
                     id="custom-select-room"
-                    label="手動で部屋を選ぶ"
+                    label={this.state.manualRoomSelector === true ? '手動モード' : '自動モード'}
                     checked={this.state.manualRoomSelector}
                     onChange={this.handleChangeManualRoomSelector}
                 />
                 {this.state.manualRoomSelector === true ?
                 // select rooms manually
-                <FloorMap
-                    room={['301', '306', '307', '401', '308']}
-                    clickable={true}
-                />
+                <div>
+                    <div className="row py-3">
+                        {this.state.allRooms.map((oneRoom) => {
+                            return (
+                                <div className="col-4 col-lg-1">
+                                    <input
+                                        className="form-check-input"
+                                        type="checkbox"
+                                        value={oneRoom.title}
+                                        id={oneRoom._id}
+                                        disabled={this.state.unavailableRooms.includes(oneRoom.title)}
+                                        checked={this.state.selectedRooms[oneRoom.title]}
+                                        onChange={(e) => this.handleChangeSelectRooms(oneRoom.title, e)}
+                                    />
+                                    <label
+                                        /* class="form-check-label" */
+                                        className={`form-check-label ${this.state.unavailableRooms.includes(oneRoom.title) === true ? 'text-danger' : ''}`}
+                                        htmlFor={oneRoom._id}>
+                                        {oneRoom.title}号室
+                                    </label>
+                                    {this.state.unavailableRooms.includes(oneRoom.title) === true ? <p className="font-weight-light text-danger">満室</p> : <p className="font-weight-light">空室</p>}
+                                </div>
+                            );
+                        })}
+                    </div>
+                    <FloorMap
+                        unavailableRooms={this.state.unavailableRooms}
+                        selectedRooms={this.state.rooms}
+                        clickable={true}
+                    />
+                </div>
                 :
                 // select rooms automatically
-                <FloorMap
-                    room={room}
-                    clickable={false}
-                />
+                <div>
+                    <div>
+                    </div>
+                    <FloorMap
+                        unavailableRooms={['']}
+                        selectedRooms={this.state.rooms}
+                        clickable={false}
+                    />
+                </div>
                 }
             </div>
         );
