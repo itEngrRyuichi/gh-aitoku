@@ -78,5 +78,13 @@ input[type=checkbox]{
     transform: scale(1.25);
 }
 
+.unable-room-checkbox, .unable-room-label, .custom-control-label{
+    cursor: pointer;
+}
+
+.disable-room-checkbox, .disable-room-label{
+    cursor: no-drop;
+}
+
 
 

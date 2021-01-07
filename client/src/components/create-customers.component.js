@@ -556,6 +556,7 @@ export default class CreateCustomers extends Component {
                 <label className="py-4">部屋割り</label>
                 <Form.Check
                     type="switch"
+                    className="room-switcher"
                     id="custom-select-room"
                     label={this.state.manualRoomSelector === true ? '手動モード' : '自動モード'}
                     checked={this.state.manualRoomSelector}
@@ -569,7 +570,7 @@ export default class CreateCustomers extends Component {
                             return (
                                 <div className="col-4 col-lg-1">
                                     <input
-                                        className="form-check-input"
+                                        className={`form-check-input ${this.state.unavailableRooms.includes(oneRoom.title) === false ? 'unable-room-checkbox' : 'disable-room-checkbox'}`}
                                         type="checkbox"
                                         value={oneRoom.title}
                                         id={oneRoom._id}
@@ -579,7 +580,7 @@ export default class CreateCustomers extends Component {
                                     />
                                     <label
                                         /* class="form-check-label" */
-                                        className={`form-check-label ${this.state.unavailableRooms.includes(oneRoom.title) === true ? 'text-danger' : ''}`}
+                                        className={`form-check-label ${this.state.unavailableRooms.includes(oneRoom.title) === true ? 'text-danger disable-room-label' : 'unable-room-label'}`}
                                         htmlFor={oneRoom._id}>
                                         {oneRoom.title}号室
                                     </label>
