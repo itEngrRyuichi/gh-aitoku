@@ -1,6 +1,6 @@
 # ゲストハウス愛徳専用ウェブサイト
 
-作成者 : 江越 龍一
+作成者 江越 龍一
 
 部屋割り(自動部屋割りと手動のスイッチ)
 ![image](./client/src/pics/chooseRoom.gif "image")
