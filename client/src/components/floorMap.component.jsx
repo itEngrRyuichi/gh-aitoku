@@ -78,6 +78,11 @@ export default class FloorMap extends Component {
         ctxRoom306.fillText('306', 15, 70);
         ctxRoom306.fillText('2人部屋', 15, 90);
 
+        // thirdSpace2
+        const canvasThirdSpace2 = this.refs.thirdSpace2;
+        const ctxThirdSpace2 = canvasThirdSpace2.getContext("2d");
+        this.commonBoxStyles(canvasThirdSpace2, ctxThirdSpace2);
+
     }
     
     render() {
