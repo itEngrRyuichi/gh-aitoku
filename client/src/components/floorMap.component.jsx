@@ -71,6 +71,13 @@ export default class FloorMap extends Component {
         const ctxThirdSpace1 = canvasThirdSpace1.getContext("2d");
         this.commonRectStyles(canvasThirdSpace1, ctxThirdSpace1);
 
+        // Room 306
+        const canvasRoom306 = this.refs.room306;
+        const ctxRoom306 = canvasRoom306.getContext("2d");
+        this.commonRectStyles(canvasRoom306, ctxRoom306);
+        ctxRoom306.fillText('306', 15, 70);
+        ctxRoom306.fillText('2人部屋', 15, 90);
+
     }
     
     render() {
