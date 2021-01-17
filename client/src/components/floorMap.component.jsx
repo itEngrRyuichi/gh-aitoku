@@ -55,24 +55,14 @@ export default class FloorMap extends Component {
                     <label>3階</label>
                     <br />
                     <canvas ref='room301' style={{
-                        display: 'inline-block',
-                        margin: '0px'
                     }} />
                     <canvas ref='room302' style={{
-                        display: 'inline-block',
-                        margin: '0px'
                     }} />
                     <canvas ref='room303' style={{
-                        display: 'inline-block',
-                        margin: '0px'
                     }} />
                     <canvas ref='room305' style={{
-                        display: 'inline-block',
-                        margin: '0px'
                     }} />
                     <canvas ref='thirdFloorCorridor' style={{
-                        display: 'inline-block',
-                        margin: '0px'
                     }} />
                     <canvas ref='room306' />
                     <canvas ref='room307' />
