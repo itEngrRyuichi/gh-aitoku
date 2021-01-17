@@ -107,14 +107,44 @@ export default class FloorMap extends Component {
                     <label>3階</label>
                     <br />
                     <canvas ref='room301' style={{
+                        border: '2px solid #e65100',
+                        backgroundColor: '#fffde7'
                     }} />
                     <canvas ref='room302' style={{
+                        border: '2px solid #e65100',
+                        backgroundColor: '#fffde7'
                     }} />
                     <canvas ref='room303' style={{
+                        border: '2px solid #e65100',
+                        backgroundColor: '#fffde7'
                     }} />
                     <canvas ref='room305' style={{
+                        border: '2px solid #e65100',
+                        backgroundColor: '#fffde7'
                     }} />
                     <canvas ref='thirdFloorCorridor' style={{
+                        border: '2px solid #e65100',
+                        backgroundColor: '#fffde7'
+                    }} />
+                    <canvas ref='thirdSpace1' style={{
+                        border: '2px solid #e65100',
+                        backgroundColor: '#fffde7'
+                    }} />
+                    <canvas ref='room306' style={{
+                        border: '2px solid #e65100',
+                        backgroundColor: '#fffde7'
+                    }} />
+                    {<canvas ref='thirdSpace2' style={{
+                        border: '2px solid #e65100',
+                        backgroundColor: '#fffde7'
+                    }} />}
+                    <canvas ref='room308' style={{
+                        border: '2px solid #e65100',
+                        backgroundColor: '#fffde7'
+                    }} />
+                    <canvas ref='room307' style={{
+                        border: '2px solid #e65100',
+                        backgroundColor: '#fffde7'
                     }} />
                 </div>
                 <div className="col-lg-6 col-12">
