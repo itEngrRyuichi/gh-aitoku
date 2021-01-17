@@ -45,15 +45,6 @@ export default class FloorMap extends Component {
         canvasThirdFloorCorridor.style.width  = '480px';
         canvasThirdFloorCorridor.style.height = '120px';
 
-        ctxThirdFloorCorridor.beginPath();
-        ctxThirdFloorCorridor.moveTo(0, 0);
-        ctxThirdFloorCorridor.lineTo(460, 0);
-        ctxThirdFloorCorridor.lineTo(460, 80);
-        ctxThirdFloorCorridor.lineTo(0, 80);
-        ctxThirdFloorCorridor.closePath();
-        ctxThirdFloorCorridor.lineWidth = 1;
-        ctxThirdFloorCorridor.stroke();
-        ctxThirdFloorCorridor.fillStyle = 'black';
 
     }
     
