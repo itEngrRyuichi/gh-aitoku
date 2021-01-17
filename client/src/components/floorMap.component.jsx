@@ -15,22 +15,6 @@ export default class FloorMap extends Component {
         // Room 301
         const canvasRoom301 = this.refs.room301;
         const ctxRoom301 = canvasRoom301.getContext("2d");
-        
-        canvasRoom301.width = 120;
-        canvasRoom301.height = 120;
-        canvasRoom301.style.width  = '120px';
-        canvasRoom301.style.height = '120px';
-
-        ctxRoom301.beginPath();
-        ctxRoom301.moveTo(0, 0);
-        ctxRoom301.lineTo(120, 0);
-        ctxRoom301.lineTo(120, 120);
-        ctxRoom301.lineTo(0, 120);
-        ctxRoom301.closePath();
-        ctxRoom301.lineWidth = 3;
-        ctxRoom301.stroke(); 
-        ctxRoom301.fillStyle = 'black';
-        ctxRoom301.font = '18px Arial';
         ctxRoom301.fillText('301', 20, 40);
         ctxRoom301.fillText('4人部屋', 20, 60);
 
