@@ -128,6 +128,7 @@ export default class FloorMap extends Component {
         ctx.lineTo(560, 200);
         ctx.lineTo(590, 200);
         ctx.closePath();
+        
         this.state.selectedRooms.includes('305') === true ? this.selectedStyleFill(ctx) : this.StyleStroke(ctx);        this.state.unavailableRooms.includes('305') === true ? this.unavailableStyleFill(ctx) : this.StyleStroke(ctx);
         ctx.font = '25px Arial';
         ctx.fillText('305', 610, 140);
