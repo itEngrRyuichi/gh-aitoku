@@ -64,7 +64,12 @@ export default class FloorMap extends Component {
         canvasThirdFloorCorridor.width = 480;
         canvasThirdFloorCorridor.height = 120;
         canvasThirdFloorCorridor.style.width  = '480px';
+        canvasThirdFloorCorridor.style.height = '100px';
 
+        // thirdSpace1
+        const canvasThirdSpace1 = this.refs.thirdSpace1;
+        const ctxThirdSpace1 = canvasThirdSpace1.getContext("2d");
+        this.commonRectStyles(canvasThirdSpace1, ctxThirdSpace1);
 
     }
     
