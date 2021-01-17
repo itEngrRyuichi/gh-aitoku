@@ -1,7 +1,8 @@
 import React, { Component, Fragment } from 'react';
 
 import AdminNavigation from "./navbar.component";
-import FloorMap from "./floorplan.component";
+import FloorPlan from "./floorplan.component";
+import FloorMap from "./floorMap.component";
 
 import axios from 'axios';
 
@@ -465,10 +466,12 @@ export default class Settings extends Component {
                         <hr />
                         <label><i className="far fa-check-square"></i> 部屋見取り図</label>
                         <br />
-                        <FloorMap
+                        <FloorPlan
                             room={['']}
                             clickable={false}
                         />
+                        <br />
+                        <FloorMap />
                     </div>
                 </div>
             </Fragment>

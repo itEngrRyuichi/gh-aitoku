@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Form from 'react-bootstrap/Form';
 
 import AdminNavigation from "./navbar.component";
-import FloorMap from "./floorplan.component";
+import FloorPlan from "./floorplan.component";
 
 import axios from 'axios';
 import e from 'cors';
@@ -589,7 +589,7 @@ export default class CreateCustomers extends Component {
                             );
                         })}
                     </div>
-                    <FloorMap
+                    <FloorPlan
                         unavailableRooms={this.state.unavailableRooms}
                         selectedRooms={this.state.rooms}
                         clickable={true}
@@ -600,7 +600,7 @@ export default class CreateCustomers extends Component {
                 <div>
                     <div>
                     </div>
-                    <FloorMap
+                    <FloorPlan
                         unavailableRooms={['']}
                         selectedRooms={this.state.rooms}
                         clickable={false}
