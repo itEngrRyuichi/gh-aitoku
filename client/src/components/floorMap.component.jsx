@@ -64,10 +64,6 @@ export default class FloorMap extends Component {
                     }} />
                     <canvas ref='thirdFloorCorridor' style={{
                     }} />
-                    <canvas ref='room306' />
-                    <canvas ref='room307' />
-                    <canvas ref='room308' />
-                    <canvas ref='room3rdOthers' />
                 </div>
                 <div className="col-lg-6 col-12">
                     <label>4階</label>
