@@ -86,5 +86,22 @@ input[type=checkbox]{
     cursor: no-drop;
 }
 
+.canvases{
+    min-width: 480px;
+    padding: 0 !important;
+    margin: 0 !important;
+}
+
+.row.no-gutter {
+    margin-left: 0;
+    margin-right: 0;
+  }
+  
+.row.no-gutter [class*='col-']:not(:first-child),
+.row.no-gutter [class*='col-']:not(:last-child) {
+    padding-right: 0;
+    padding-left: 0;
+}
+
 
 

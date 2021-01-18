@@ -102,8 +102,8 @@ export default class FloorMap extends Component {
     
     render() {
         return(
-            <div className="row py-2">
-                <div className="col-lg-6 col-12">
+            <div className="row no-gutter">
+                <div className="col-md-6 col-lg-6 col-12 canvases">
                     <label>3階</label>
                     <br />
                     <canvas ref='room301' style={{
