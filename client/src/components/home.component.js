@@ -1,4 +1,5 @@
 import React, { Component, Fragment } from 'react';
+import Ready from './ready.component';
 
 export default class Home extends Component {
     constructor(props) {
@@ -11,7 +12,7 @@ export default class Home extends Component {
     render() {
         return (
             <Fragment>
-                This is main page
+                <Ready />
             </Fragment>
         );
     }
