@@ -18,6 +18,9 @@ export default class Ready extends Component {
         return (
             <Fragment>
                 <div className="d-flex justify-content-center pt-5">
+                    <h2 className="main-title">ゲストハウス愛徳<br />公式ホームページ</h2>
+                </div>
+                <div className="d-flex justify-content-center pt-5">
                     <img src={ readyImg } alt="ready"  className="readyImg" />
                 </div>
                 <div className="d-flex justify-content-center pt-5">

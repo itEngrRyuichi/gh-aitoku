@@ -7,7 +7,7 @@ export default class AdminNavigation extends Component {
         return (
             <div>
                 <Helmet>
-                    <title>愛徳 | 管理者ページ</title>
+                    <title>ゲストハウス愛徳 | 管理者ページ</title>
                     <meta name="robots" content="noindex" />
                 </Helmet>
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
