@@ -1,11 +1,15 @@
 import React, { Component } from 'react';
 import { Navbar, Nav } from 'react-bootstrap';
-
+import { Helmet } from 'react-helmet';
 export default class AdminNavigation extends Component {
 
     render() {
         return (
             <div>
+                <Helmet>
+                    <title>愛徳 | 管理者ページ</title>
+                    <meta name="robots" content="noindex" />
+                </Helmet>
                 <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
                     <div className="container">
                         <Navbar.Brand href="/admin">愛徳 管理者</Navbar.Brand>
