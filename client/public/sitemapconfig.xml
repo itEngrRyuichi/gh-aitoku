@@ -4,20 +4,4 @@
     <loc>https://guesthouseaitoku.herokuapp.com/</loc>
     <lastmod>2021-01-28T23:47:05+09:00</lastmod>
   </url>
-  <url>
-    <loc>https://guesthouseaitoku.herokuapp.com/admin</loc>
-    <lastmod>2021-01-28T23:47:05+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://guesthouseaitoku.herokuapp.com/admin/settings</loc>
-    <lastmod>2021-01-28T23:47:05+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://guesthouseaitoku.herokuapp.com/admin/create</loc>
-    <lastmod>2021-01-28T23:47:05+09:00</lastmod>
-  </url>
-  <url>
-    <loc>https://guesthouseaitoku.herokuapp.com/admin/schedule</loc>
-    <lastmod>2021-01-28T23:47:05+09:00</lastmod>
-  </url>
 </urlset>
