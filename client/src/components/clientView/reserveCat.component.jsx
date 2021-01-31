@@ -16,7 +16,7 @@ export default class ReserveCat extends Component {
     componentDidMount() {
 
         const configReservationCat = {
-            origin: 'torightp',
+            origin: 'left',
             duration: 500,
             delay: 350,
             distance: '50px',
@@ -25,7 +25,7 @@ export default class ReserveCat extends Component {
         }
 
         const configReservationWord = {
-            origin: 'torightp',
+            origin: 'left',
             duration: 500,
             delay: 450,
             distance: '50px',
@@ -47,7 +47,6 @@ export default class ReserveCat extends Component {
                     <img src={Reserve} alt="reserve" id="reserve" ref="reservationWord"/>
                 </div>
                 <div className="reserve reserve-cat-small d-block d-lg-none">
-                    <button type="button" className="btn btn-small">予約はこちら</button>
                     <img src={CatSmall} alt="cat-small" id="cat-small" />
                 </div>
             </Fragment>

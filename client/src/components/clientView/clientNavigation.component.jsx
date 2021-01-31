@@ -102,7 +102,8 @@ export default class ClientNavigation extends Component {
                                 <Nav.Link href="/" className="px-4" ref="navItem1">施設案内</Nav.Link>
                                 <Nav.Link href="/" className="px-4" ref="navItem2">周辺案内</Nav.Link>
                                 <Nav.Link href="/" className="px-4" ref="navItem3">アクセス</Nav.Link>
-                                <Nav.Link href="/" className="px-4 border-none" ref="navItem4">お問い合わせ</Nav.Link>
+                                <Nav.Link href="/" className="px-4" ref="navItem4">予約</Nav.Link>
+                                <Nav.Link href="/" className="px-4 border-none" ref="navItem5">お問い合わせ</Nav.Link>
                             </Nav>
                             <Nav className="mr-auto ml-auto">
                                 <Nav.Link href="/" className="px-4 border-none translate" ref="navItem5">EN <i className="fas fa-arrows-alt-h"></i> JP</Nav.Link>

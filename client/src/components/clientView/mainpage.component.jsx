@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 
 import ClientNavigation from './clientNavigation.component';
 import ReserveCat from './reserveCat.component';
+import Footer from './footer';
+import { Fragment } from 'react';
 
 export default class Home extends Component {
     constructor(props) {
@@ -15,10 +17,13 @@ export default class Home extends Component {
 
     render() {
         return (
-            <div className="main">
-                <ClientNavigation />
-                <ReserveCat />
-            </div>
+            <Fragment>
+                <div className="main">
+                    <ClientNavigation />
+                    <ReserveCat />
+                </div>
+                <Footer />
+            </Fragment>
         );
     }
 }
