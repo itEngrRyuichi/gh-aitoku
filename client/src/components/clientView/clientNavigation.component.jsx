@@ -77,6 +77,15 @@ export default class ClientNavigation extends Component {
             easing: 'ease',
         }
 
+        const configNavItem6 = {
+            origin: 'top',
+            duration: 500,
+            delay: 450,
+            distance: '100px',
+            scale: 1,
+            easing: 'ease',
+        }
+
         sr.reveal(this.refs.clientNavigation, configClientNavigation);
         sr.reveal(this.refs.navItemBrand, configBrand);
         sr.reveal(this.refs.navItem1, configNavItem1);
@@ -84,6 +93,11 @@ export default class ClientNavigation extends Component {
         sr.reveal(this.refs.navItem3, configNavItem3);
         sr.reveal(this.refs.navItem4, configNavItem4);
         sr.reveal(this.refs.navItem5, configNavItem5);
+        sr.reveal(this.refs.navItem6, configNavItem6);
+    }
+
+    clientNaviItemEng() {
+        return 
     }
 
     render() {
@@ -99,14 +113,14 @@ export default class ClientNavigation extends Component {
                         <Navbar.Toggle aria-controls="navbar-responsive" />
                         <Navbar.Collapse id="navbar-responsive" className="p-0 m-0">
                             <Nav className="mr-auto ml-auto">
-                                <Nav.Link href="/" className="px-4" ref="navItem1">施設案内</Nav.Link>
-                                <Nav.Link href="/" className="px-4" ref="navItem2">周辺案内</Nav.Link>
-                                <Nav.Link href="/" className="px-4" ref="navItem3">アクセス</Nav.Link>
-                                <Nav.Link href="/" className="px-4" ref="navItem4">予約</Nav.Link>
-                                <Nav.Link href="/" className="px-4 border-none" ref="navItem5">お問い合わせ</Nav.Link>
+                                <Nav.Link href="/" className="px-4 topic-item" ref="navItem1">お部屋・施設</Nav.Link>
+                                <Nav.Link href="/" className="px-4 topic-item" ref="navItem2">周辺案内</Nav.Link>
+                                <Nav.Link href="/" className="px-4 topic-item" ref="navItem3">交通</Nav.Link>
+                                <Nav.Link href="/" className="px-4 topic-item border-none" ref="navItem4">お問い合わせ</Nav.Link>
                             </Nav>
                             <Nav className="mr-auto ml-auto">
-                                <Nav.Link href="/" className="px-4 border-none translate" ref="navItem5">EN <i className="fas fa-arrows-alt-h"></i> JP</Nav.Link>
+                                <Nav.Link href="/" className="px-4 border-none reserve-item" ref="navItem5">宿泊予約</Nav.Link>
+                                <Nav.Link href="/" className="px-4 border-none translate" ref="navItem6">EN <i className="fas fa-arrows-alt-h"></i> JP</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </div>

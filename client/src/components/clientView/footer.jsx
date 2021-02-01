@@ -73,7 +73,8 @@ export default class Footer extends Component {
                         <p className="text-center addnumber" ref="address2">〒389-2502</p>
                         <p className="text-center addstring" ref="address3">長野県下高井郡野沢温泉村大字豊郷6570</p>
                     </div>
-                    <p className="text-center copyright py-2">Copyright &copy; 2021 Aitoku-Inn. All Rights Reserved.</p>
+                    <p className="text-center copyright pt-2">Copyright &copy; 2021 Aitoku-Inn. All Rights Reserved.</p>
+                    <p className="text-center copyright pb-2">Website Created by Ryuichi Paul Egoshi</p>
                 </div>
                 {/* Mobile */}
                 <div className="footer-mobile d-block d-sm-none">
@@ -87,7 +88,8 @@ export default class Footer extends Component {
                         <p className="text-left addnumber" ref="address12">〒389-2502</p>
                         <p className="text-left addstring" ref="address13">長野県下高井郡野沢温泉村大字豊郷6570</p>
                     </div>
-                    <p className="text-center copyright py-4">Copyright &copy; 2021 Aitoku-Inn. All Rights Reserved.</p>
+                    <p className="text-center copyright pt-4">Copyright &copy; 2021 Aitoku-Inn. All Rights Reserved.</p>
+                    <p className="text-center copyright pb-4">Website Created by Ryuichi Paul Egoshi</p>
                 </div>
             </Fragment>
         );
