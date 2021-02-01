@@ -29,8 +29,10 @@ nav.navbar.client-nav{
         font-size: medium;
         font-weight: bold;
         font-family: 'M PLUS Rounded 1c', sans-serif;
-        border-right: none;
         position: relative;
+    }
+    a.nav-link.selected, a.nav-link.selected:hover{
+        color: #bf360cb0;
     }
     a.nav-link::after{
         content: '';
@@ -56,9 +58,6 @@ nav.navbar.client-nav{
     a.nav-link.translate{
         font-family: 'Montserrat Alternates', sans-serif;
     }
-    a.nav-link.border-none{
-        border-right: none;
-    }
     a.nav-link.reserve-item{
         color: white;
         background-color: #bf360cb0;
@@ -69,7 +68,7 @@ nav.navbar.client-nav{
     a.nav-link.reserve-item:hover{
         background-color: #37474f;
     }
-    a.nav-link.translate:hover::after, a.nav-link.reserve-item:hover::after{
+    a.nav-link.selected:hover::after, a.nav-link.translate:hover::after, a.nav-link.reserve-item:hover::after{
         width: 0;
     }
     @media screen and (min-width: 990px) {

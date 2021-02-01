@@ -1,0 +1,77 @@
+.footer {
+    background-color: #37474f;
+    color: white;
+    position: relative;
+    z-index: 2;
+    bottom: 0;
+    min-height: 100vh;
+    img{
+        height: 15vh;
+    }
+    .contact, .address{
+        p.title{
+            font-size: x-large;
+            color: #b0bec5;
+        }
+        p.number{
+            font-size: xx-large;
+            color: #eceff1;
+            small{
+                color: #b0bec5;
+            }
+        }
+        p.addnumber{
+            font-size: medium;
+            color: #eceff1;
+        }
+        p.addstring{
+            font-size: x-large;
+            color: #eceff1;
+        }
+    }
+    .copyright{
+        color: #b0bec5;
+    }
+}
+
+.footer-mobile {
+    padding-top: 8vh;
+    background-color: #37474f;
+    color: white;
+    position: relative;
+    z-index: 2;
+    bottom: 0;
+    min-height: 100vh;
+    img{
+        height: 10vh;
+    }
+    .contact, .address{
+        p.title{
+            font-size: medium;
+            color: #b0bec5;
+            padding-left: 8vw;
+        }
+        p.number{
+            font-size: large;
+            color: #eceff1;
+            padding-left: 16vw;
+            small{
+                color: #b0bec5;
+            }
+        }
+        p.addnumber{
+            font-size: small;
+            color: #eceff1;
+            padding-left: 16vw;
+        }
+        p.addstring{
+            font-size: medium;
+            color: #eceff1;
+            padding-left: 16vw;
+        }
+    }
+    .copyright{
+        font-size: small;
+        color: #b0bec5;
+    }
+}

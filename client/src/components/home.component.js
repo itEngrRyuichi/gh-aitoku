@@ -27,7 +27,6 @@ export default class Home extends Component {
                     <meta property="og:site_name" content="ゲストハウス愛徳" />
                     <meta property="og:description" content="「ただいま」って言いたくなるあたたかい宿泊施設。野沢温泉村、ゲストハウス愛徳で宿泊しませんか？ ゲレンデまで徒歩1分。スキースノボは勿論、夏は涼しく自然の中でリモートワークも最適！" />
                 </Helmet>
-                {/* <Ready /> */}
                 <MainPage />
             </Fragment>
         );

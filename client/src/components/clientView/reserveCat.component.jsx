@@ -14,7 +14,12 @@ export default class ReserveCat extends Component {
         }
     }
     componentDidMount() {
+        if (this.props.animated === true) {
+            this.animated();
+        }
+    }
 
+    animated() {
         const configReservationCat = {
             origin: 'left',
             duration: 500,

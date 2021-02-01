@@ -1,0 +1,35 @@
+.reserve-cat{
+    position: fixed;
+    top: 75vh;
+    left: 80vw;
+    z-index: 10;
+    #cat{
+        height: 20vh;
+        cursor: pointer;
+    }
+}
+
+.reserve-word{
+    position: fixed;
+    top: 62vh;
+    left: 84vw;
+    z-index: 10;
+    #reserve{
+        height: 20vh;
+        cursor: pointer;
+    }
+}
+
+.reserve-cat-small{
+    position: fixed;
+    top: 75vh;
+    left: 60vw;
+    z-index: 10;
+    #cat-small{
+        height: 20vh;
+        cursor: pointer;
+    }
+    .btn.btn-small{
+        font-size: small;
+    }
+}

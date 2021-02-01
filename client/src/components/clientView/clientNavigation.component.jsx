@@ -14,6 +14,11 @@ export default class ClientNavigation extends Component {
         }
     }
     componentDidMount() {
+        if (this.props.animated === true) {
+            this.animated();
+        }
+    }
+    animated() {
         const configClientNavigation = {
             origin: 'top',
             duration: 500,
@@ -113,14 +118,14 @@ export default class ClientNavigation extends Component {
                         <Navbar.Toggle aria-controls="navbar-responsive" />
                         <Navbar.Collapse id="navbar-responsive" className="p-0 m-0">
                             <Nav className="mr-auto ml-auto">
-                                <Nav.Link href="/" className="px-4 topic-item" ref="navItem1">お部屋・施設</Nav.Link>
-                                <Nav.Link href="/" className="px-4 topic-item" ref="navItem2">周辺案内</Nav.Link>
-                                <Nav.Link href="/" className="px-4 topic-item" ref="navItem3">交通</Nav.Link>
-                                <Nav.Link href="/" className="px-4 topic-item border-none" ref="navItem4">お問い合わせ</Nav.Link>
+                                <Nav.Link href="/facility" className={`px-4 topic-item ${this.props.page==='facility' ? 'selected' : ''}`} ref="navItem1">お部屋・施設</Nav.Link>
+                                <Nav.Link href="/activity" className={`px-4 topic-item ${this.props.page==='activity' ? 'selected' : ''}`}  ref="navItem2">周辺案内</Nav.Link>
+                                <Nav.Link href="/access" className={`px-4 topic-item ${this.props.page==='access' ? 'selected' : ''}`}  ref="navItem3">アクセス</Nav.Link>
+                                <Nav.Link href="/contact" className={`px-4 topic-item ${this.props.page==='contact' ? 'selected' : ''}`}  ref="navItem4">お問い合わせ</Nav.Link>
                             </Nav>
                             <Nav className="mr-auto ml-auto">
-                                <Nav.Link href="/" className="px-4 border-none reserve-item" ref="navItem5">宿泊予約</Nav.Link>
-                                <Nav.Link href="/" className="px-4 border-none translate" ref="navItem6">EN <i className="fas fa-arrows-alt-h"></i> JP</Nav.Link>
+                                <Nav.Link href="/reservation" className="px-4 reserve-item" ref="navItem5">宿泊予約</Nav.Link>
+                                <Nav.Link href="/" className="px-4 translate" ref="navItem6">EN <i className="fas fa-arrows-alt-h"></i> JP</Nav.Link>
                             </Nav>
                         </Navbar.Collapse>
                     </div>
