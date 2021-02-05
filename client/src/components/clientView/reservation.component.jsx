@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import ClientNavigation from './clientNavigation.component';
-import ReserveCat from './reserveCat.component';
+import sr from '../../scrollReveal';
 import Footer from './footer';
 
 export default class Reservation extends Component {
@@ -9,6 +9,37 @@ export default class Reservation extends Component {
 
         this.state = {
         }
+
+    }
+    
+    componentDidMount() {
+        this.animated();
+    }
+
+    animated() {
+        const configReserveWindow = {
+        origin: 'right',
+        duration: 500,
+        delay: 0,
+        distance: '1000px',
+        scale: 1,
+        easing: 'ease-in-out',
+        }
+
+        sr.reveal(this.refs.reserveWindow, configReserveWindow);
+    }
+
+    closed() {
+        const configCloseWindows = {
+            origin: 'left',
+            duration: 500,
+            delay: 0,
+            distance: '1000px',
+            scale: 1,
+            easing: 'ease-out',
+        }
+
+        sr.reveal(this.refs.reserveWindow, configCloseWindows);
     }
 
     render() {
@@ -18,7 +49,9 @@ export default class Reservation extends Component {
                     <ClientNavigation
                         animated={false}
                         page={'reservation'} />
-                    <h1 className="main-title text-center">予約</h1>
+                    <div className="reservation" ref='reserveWindow'>
+                        <p onClick={ this.closed() } className="returnHome"><i className="fas fa-arrow-right"></i></p>
+                    </div>
                 </div>
                 <Footer />
             </Fragment>
