@@ -5,7 +5,6 @@ import Facility from "./components/clientView/facility.component";
 import Activity from "./components/clientView/activity.component";
 import Access from "./components/clientView/access.component";
 import Contact from "./components/clientView/contact.component";
-import Reservation from "./components/clientView/reservation.component";
 import Settings from "./components/settings.component";
 import CustomersList from "./components/customers-list.component";
 import EditCustomers from "./components/edit-customers.component";
@@ -22,7 +21,6 @@ function App() {
         <Route path="/activity" exact component={Activity} />
         <Route path="/access" exact component={Access} />
         <Route path="/contact" exact component={Contact} />
-        <Route path="/reservation" exact component={Reservation} />
         {/* Admin View */}
         <Route path="/admin" exact component={CustomersList} />
         <Route path="/admin/settings" exact component={Settings} />
