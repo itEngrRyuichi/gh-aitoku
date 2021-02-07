@@ -112,7 +112,7 @@ export default class Reservation extends Component {
             <>
                 <label>人数</label>
                 <div className="row border p-2 mb-3 m-1 ninzu">
-                    <div className="col-3 form-group">
+                    <div className="col-3 text-center reserve-item form-group">
                         <label>大人(13-)</label>
                         <input
                             type="number"
@@ -122,7 +122,7 @@ export default class Reservation extends Component {
                             max="13"
                         />
                     </div>
-                    <div className="col-3 form-group">
+                    <div className="col-3 text-center reserve-item form-group">
                         <label>小学生(7-12)</label>
                         <input
                             type="number"
@@ -132,7 +132,7 @@ export default class Reservation extends Component {
                             max="13"
                         />
                     </div>
-                    <div className="col-3 form-group">
+                    <div className="col-3 text-center reserve-item form-group">
                         <label>未就学児(4-6)</label>
                         <input
                             type="number"
@@ -142,7 +142,7 @@ export default class Reservation extends Component {
                             max="13"
                         />
                     </div>
-                    <div className="col-3 form-group">
+                    <div className="col-3 text-center reserve-item form-group">
                         <label>幼児(0-3)</label>
                         <input
                             type="number"
@@ -161,7 +161,7 @@ export default class Reservation extends Component {
         return(
             <>
                 <div className="row justify-content-end">
-                    <div className="col-2 form-group">
+                    <div className="col-3 text-center reserve-item form-group">
                         <label>朝食</label>
                         <select
                         required
@@ -170,7 +170,7 @@ export default class Reservation extends Component {
                             <option value="朝食あり">朝食あり</option>
                         </select>
                     </div>
-                    <div className="col-2 form-group">
+                    <div className="col-3 text-center reserve-item form-group">
                         <label>到着時刻</label>
                         <input
                             type="time"
@@ -178,7 +178,7 @@ export default class Reservation extends Component {
                             className="form-control"
                         />
                     </div>
-                    <div className="col-2 form-group">
+                    <div className="col-3 text-center reserve-item form-group">
                         <label>交通手段</label>
                         <select
                         required
@@ -189,6 +189,16 @@ export default class Reservation extends Component {
                             <option value="パラシュート">パラシュート</option>
                         </select>
                     </div>
+                </div>
+                <div className="col-12 form-group">
+                    <label>ご要望記入欄</label>
+                    <textarea
+                    className="form-control"
+                    required
+                    ></textarea>
+                </div>
+                <div className="form-group pb-4">
+                    <input type="submit" value="予約" className="btn btn-outline-secondary" />
                 </div>
             </>
         );
@@ -223,24 +233,24 @@ export default class Reservation extends Component {
                         <i className="fas fa-times"></i>
                     </button>
                     <div className="row justify-content-center">
-                        <div className="col-2">
+                        {/* TODO タブ化 */}
+                        <div className="col-2 text-center reserve-item">
 
                             <p /* onClick={this.switchWindow('contact')} */>お名前と連絡先</p>
                         </div>
-                        <div className="col-2">
-                            <p /* onClick={this.switchWindow('people')} */>宿泊人数</p>
+                        <div className="col-1 text-center reserve-item">
+                            <p /* onClick={this.switchWindow('people')} */>人数</p>
                         </div>
-                        <div className="col-2">
-                            <p /* onClick={this.switchWindow('date')} */>宿泊予定日</p>
+                        <div className="col-1 text-center reserve-item">
+                            <p /* onClick={this.switchWindow('date')} */>予定日</p>
                         </div>
-                        <div className="col-2">
-                            <p /* onClick={this.switchWindow('detail')} */>その他</p>
-                        </div>
-                        <div className="col-2">
-                            <p /* onClick={this.switchWindow('description')} */>ご要望</p>
+                        <div className="col-3 text-center reserve-item">
+                            <p /* onClick={this.switchWindow('detail')} */>朝食/交通手段など</p>
                         </div>
                     </div>
-                    { this.state.showWindow }
+                    <hr />
+                    { this.detailRender() }
+                    <button className="btn btn-default">次へ</button>
                 </div>
             </div>
         );
