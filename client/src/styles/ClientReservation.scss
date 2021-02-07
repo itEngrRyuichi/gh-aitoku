@@ -21,6 +21,14 @@
         button:hover{
             color: lighten($color: #bf360c, $amount: 50%);
         }
+        .reserve-item {
+            p{
+                cursor: pointer;
+            }
+            p:hover{
+                color: #bf360c;
+            }  
+        } 
     }
 }
 @keyframes fadeIn {
