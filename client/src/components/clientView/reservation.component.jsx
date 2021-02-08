@@ -6,12 +6,49 @@ export default class Reservation extends Component {
         super(props);
 
         this.state = {
+            checkin: new Date(''),
+            checkout: new Date(''),
+            duration: '',
+            username: '',
+            phone: '',
+            email: '',
+            adult_no: 2,
+            middle_no: 0,
+            child_no: 0,
+            baby_no: 0,
+            adult_fee: '',
+            middle_fee: '',
+            child_fee: '',
+            baby_fee: '',
+            room: '',
+            rooms: [],
+            arrival: '13:00',
+            access: '自動車',
+            food: '朝食なし',
+            description: '特になし',
+
+            // original
             isContactSelected: true,
             isPeopleSelected: false,
             isDateSelected: false,
             isDetailSelected: false,
             isConfirmSelected: false,
         }
+
+        this.onChangeUsername = this.onChangeUsername.bind(this);
+        this.onChangePhone = this.onChangePhone.bind(this);
+        this.onChangeEmail = this.onChangeEmail.bind(this);
+        this.onChangeCheckin = this.onChangeCheckin.bind(this);
+        this.onChangeCheckout = this.onChangeCheckout.bind(this);
+        this.onChangeAdult = this.onChangeAdult.bind(this);
+        this.onChangeMiddle = this.onChangeMiddle.bind(this);
+        this.onChangeChild = this.onChangeChild.bind(this);
+        this.onChangeBaby = this.onChangeBaby.bind(this);
+        this.onChangeArrival = this.onChangeArrival.bind(this);
+        this.onChangeAccess = this.onChangeAccess.bind(this);
+        this.onChangeFood = this.onChangeFood.bind(this);
+        this.onChangeDescription = this.onChangeDescription.bind(this);
+
         this.contactRender = this.contactRender.bind(this);
         this.dateRender = this.dateRender.bind(this);
         this.peopleRender = this.peopleRender.bind(this);
@@ -27,6 +64,15 @@ export default class Reservation extends Component {
     componentDidMount() {
         this.selectContact();
         this.animated();
+
+        let check_in = new Date();
+        let check_out = new Date();
+        const checkin = new Date(check_in.setDate(check_in.getDate() + 3));
+        const checkout = new Date(check_out.setDate(check_out.getDate() + 4));
+        this.setState({
+            checkin: new Date(checkin).toISOString().split('T')[0],
+            checkout: new Date(checkout).toISOString().split('T')[0]
+        });
     }
 
     animated(){
@@ -41,6 +87,86 @@ export default class Reservation extends Component {
         sr.reveal(this.refs.reserveWindow, configReserveWindow);
     }
 
+    // onChanges
+    onChangeUsername(e) {
+        this.setState({
+            username: e.target.value
+        });
+    }
+
+    onChangePhone(e) {
+        this.setState({
+            phone: e.target.value
+        });
+    }
+
+    onChangeEmail(e) {
+        this.setState({
+            email: e.target.value
+        });
+    }
+
+    onChangeCheckin(e) {
+        this.setState({
+            checkin: e.target.value
+        });
+    }
+
+    onChangeCheckout(e) {
+        this.setState({
+            checkout: e.target.value
+        });
+    }
+
+    onChangeAdult(e) {
+        this.setState({
+            adult_no: e.target.value
+        });
+    }
+
+    onChangeMiddle(e) {
+        this.setState({
+            middle_no: e.target.value
+        });
+    }
+
+    onChangeChild(e) {
+        this.setState({
+            child_no: e.target.value
+        });
+    }
+
+    onChangeBaby(e) {
+        this.setState({
+            baby_no: e.target.value
+        });
+    }
+
+    onChangeArrival(e) {
+        this.setState({
+            arrival: e.target.value
+        });
+    }
+
+    onChangeAccess(e) {
+        this.setState({
+            access: e.target.value
+        });
+    }
+
+    onChangeFood(e) {
+        this.setState({
+            food: e.target.value
+        });
+    }
+
+    onChangeDescription(e) {
+        this.setState({
+            description: e.target.value
+        });
+    }
+
+    // render related functions
     selectContact() {
         this.setState({
             isContactSelected: true,
@@ -91,10 +217,10 @@ export default class Reservation extends Component {
         });
     }
 
+    // renders
     contactRender() {
         return(
             <>
-
                 <div className="col-6" ref='contactRender'>
                     <div className="form-group">
                         <label>お名前</label>
@@ -102,6 +228,8 @@ export default class Reservation extends Component {
                             type="text"
                             required
                             className="form-control"
+                            value={this.state.username}
+                            onChange={this.onChangeUsername}
                             placeholder="山田太郎"
                         />
                     </div>
@@ -111,6 +239,8 @@ export default class Reservation extends Component {
                             type="text"
                             required
                             className="form-control"
+                            value={this.state.phone}
+                            onChange={this.onChangePhone}
                             placeholder="08012345678"
                         />
                     </div>
@@ -120,6 +250,8 @@ export default class Reservation extends Component {
                             type="text"
                             required
                             className="form-control"
+                            value={this.state.email}
+                            onChange={this.onChangeEmail}
                             placeholder="example@gmail.com"
                         />
                     </div>
@@ -143,6 +275,8 @@ export default class Reservation extends Component {
                             type="date"
                             required
                             className="form-control date-selector"
+                            value={this.state.checkin}
+                            onChange={this.onChangeCheckin}
                         />
                     </div>
                     <div className="col-6">
@@ -151,6 +285,8 @@ export default class Reservation extends Component {
                             type="date"
                             required
                             className="form-control date-selector"
+                            value={this.state.checkout}
+                            onChange={this.onChangeCheckout}
                         />
                     </div>
                 </div>
@@ -166,53 +302,75 @@ export default class Reservation extends Component {
     peopleRender() {
         return(
             <>
-                <div className="col-8" ref='peopleRender'>
+                <div className="col-10" ref='peopleRender'>
                     <div className="row justify-content-center py-3">
                         <div className="col-5"><label>大人 (13歳以上)</label></div>
-                        <div className="col-3">
+                        <div className="col-2">
                             <input
                                 type="number"
                                 required
                                 className="form-control"
                                 min="1"
                                 max="13"
+                                value={this.state.adult_no}
+                                onChange={this.onChangeAdult}
                             />
+                        </div>
+                        <div className="col-1">
+                            <label>名様</label>
                         </div>
                     </div>
                     <div className="row justify-content-center py-3">
                         <div className="col-5"><label>小学生 (7歳から12歳まで)</label></div>
-                        <div className="col-3">
+                        <div className="col-2">
                             <input
                                 type="number"
                                 required
                                 className="form-control"
                                 min="0"
                                 max="13"
+                                value={this.state.middle_no}
+                                onChange={this.onChangeMiddle}
                             />
+                        </div>
+                        <div className="col-1">
+                            <label>名様</label>
                         </div>
                     </div>
                     <div className="row justify-content-center py-3">
                         <div className="col-5"><label>未就学児 (4歳から6歳まで)</label></div>
-                        <div className="col-3">
+                        <div className="col-2">
                             <input
                                 type="number"
                                 required
                                 className="form-control"
                                 min="0"
                                 max="13"
+                                value={this.state.child_no}
+                                onChange={this.onChangeChild}
+                                value={this.state.child_no}
+                                onChange={this.onChangeChild}
                             />
+                        </div>
+                        <div className="col-1">
+                            <label>名様</label>
                         </div>
                     </div>
                     <div className="row justify-content-center py-3">
                         <div className="col-5"><label>幼児 (0歳から3歳まで)</label></div>
-                        <div className="col-3">
+                        <div className="col-2">
                             <input
                                 type="number"
                                 required
                                 className="form-control"
                                 min="0"
                                 max="13"
+                                value={this.state.baby_no}
+                                onChange={this.onChangeBaby}
                             />
+                        </div>
+                        <div className="col-1">
+                            <label>名様</label>
                         </div>
                     </div>
                 </div>
@@ -234,7 +392,9 @@ export default class Reservation extends Component {
                         <div className="col-3">
                             <select
                             required
-                            className="form-control">
+                            className="form-control"
+                            value={this.state.food}
+                            onChange={this.onChangeFood}>
                                 <option value="朝食なし">朝食なし</option>
                                 <option value="朝食あり">朝食あり</option>
                             </select>
@@ -247,6 +407,8 @@ export default class Reservation extends Component {
                                 type="time"
                                 required
                                 className="form-control"
+                                value={this.state.arrival}
+                                onChange={this.onChangeArrival}
                             />
                         </div>
                     </div>
@@ -255,7 +417,9 @@ export default class Reservation extends Component {
                         <div className="col-3">
                             <select
                             required
-                            className="form-control">
+                            className="form-control"
+                            value={this.state.access}
+                            onChange={this.onChangeAccess}>
                                 <option value="自動車">自動車</option>
                                 <option value="列車">列車</option>
                                 <option value="バス">バス</option>
@@ -267,6 +431,8 @@ export default class Reservation extends Component {
                     <textarea
                     className="form-control"
                     required
+                    value={this.state.description}
+                    onChange={this.onChangeDescription}
                     ></textarea>
                 </div>
                 <div className="col-12 text-center">
