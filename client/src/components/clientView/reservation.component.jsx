@@ -6,36 +6,27 @@ export default class Reservation extends Component {
         super(props);
 
         this.state = {
-            showWindow: this.contactRender()
+            isContactSelected: true,
+            isPeopleSelected: false,
+            isDateSelected: false,
+            isDetailSelected: false,
+            isConfirmSelected: false,
         }
-
+        this.contactRender = this.contactRender.bind(this);
+        this.dateRender = this.dateRender.bind(this);
+        this.peopleRender = this.peopleRender.bind(this);
+        this.detailRender = this.detailRender.bind(this);
+        this.confirmRender = this.confirmRender.bind(this);
+        this.selectContact = this.selectContact.bind(this);
+        this.selectPeople = this.selectPeople.bind(this);
+        this.selectDate = this.selectDate.bind(this);
+        this.selectDetail = this.selectDetail.bind(this);
+        this.selectConfirm = this.selectConfirm.bind(this);
     }
     
     componentDidMount() {
+        this.selectContact();
         this.animated();
-    }
-
-    switchWindow(window) {
-        switch (window) {
-            case 'contact':
-                this.setState({showWindow: this.contactRender()});
-                break;
-            case 'people':
-                this.setState({});
-                this.setState({showWindow: this.peopleRender()});
-                break;
-            case 'date':
-                this.setState({showWindow: this.dateRender()});
-                break;
-            case 'detail':
-                this.setState({showWindow: this.detailRender()});
-                break;
-            case 'description':
-                this.setState({showWindow: this.descriptionRender()});
-                break;
-            default:
-                break;
-        }
     }
 
     animated(){
@@ -50,35 +41,93 @@ export default class Reservation extends Component {
         sr.reveal(this.refs.reserveWindow, configReserveWindow);
     }
 
+    selectContact() {
+        this.setState({
+            isContactSelected: true,
+            isPeopleSelected: false,
+            isDateSelected: false,
+            isDetailSelected: false,
+            isConfirmSelected: false,
+        });
+    }
+
+    selectPeople() {
+        this.setState({
+            isContactSelected: false,
+            isPeopleSelected: true,
+            isDateSelected: false,
+            isDetailSelected: false,
+            isConfirmSelected: false,
+        });
+    }
+
+    selectDate() {
+        this.setState({
+            isContactSelected: false,
+            isPeopleSelected: false,
+            isDateSelected: true,
+            isDetailSelected: false,
+            isConfirmSelected: false,
+        });
+    }
+
+    selectDetail() {
+        this.setState({
+            isContactSelected: false,
+            isPeopleSelected: false,
+            isDateSelected: false,
+            isDetailSelected: true,
+            isConfirmSelected: false,
+        });
+    }
+
+    selectConfirm() {
+        this.setState({
+            isContactSelected: false,
+            isPeopleSelected: false,
+            isDateSelected: false,
+            isDetailSelected: false,
+            isConfirmSelected: true,
+        });
+    }
+
     contactRender() {
         return(
             <>
-                <div className="form-group">
-                    <label>お名前</label>
-                    <input
-                        type="text"
-                        required
-                        className="form-control"
-                        placeholder="山田太郎"
-                    />
+
+                <div className="col-6" ref='contactRender'>
+                    <div className="form-group">
+                        <label>お名前</label>
+                        <input
+                            type="text"
+                            required
+                            className="form-control"
+                            placeholder="山田太郎"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>電話番号</label>
+                        <input
+                            type="text"
+                            required
+                            className="form-control"
+                            placeholder="08012345678"
+                        />
+                    </div>
+                    <div className="form-group">
+                        <label>Eメール</label>
+                        <input
+                            type="text"
+                            required
+                            className="form-control"
+                            placeholder="example@gmail.com"
+                        />
+                    </div>
                 </div>
-                <div className="form-group">
-                    <label>電話番号</label>
-                    <input
-                        type="text"
-                        required
-                        className="form-control"
-                        placeholder="08012345678"
-                    />
-                </div>
-                <div className="form-group">
-                    <label>Eメール</label>
-                    <input
-                        type="text"
-                        required
-                        className="form-control"
-                        placeholder="example@gmail.com"
-                    />
+                <div className="col-12 text-center">
+                    <div className="form-group py-4">
+                        <button type="button" className="btn" onClick={ this.selectPeople }>次のSTEPへ</button>
+                    </div>
                 </div>
             </>
         );
@@ -86,71 +135,90 @@ export default class Reservation extends Component {
 
     dateRender() {
         return(
-            <div>
-                <div className="col-6 form-group">
-                    <label>チェックイン</label>
-                    <input
-                        type="date"
-                        required
-                        className="form-control"
-                    />
+            <>
+                <div className="row form-group" ref='dateRender'>
+                    <div className="col-6">
+                        <label>チェックイン</label>
+                        <input
+                            type="date"
+                            required
+                            className="form-control date-selector"
+                        />
+                    </div>
+                    <div className="col-6">
+                        <label>チェックアウト</label>
+                        <input
+                            type="date"
+                            required
+                            className="form-control date-selector"
+                        />
+                    </div>
                 </div>
-                <div className="col-6 form-group">
-                    <label>チェックアウト</label>
-                    <input
-                        type="date"
-                        required
-                        className="form-control"
-                    />
+                <div className="col-12 text-center">
+                    <div className="form-group py-4">
+                        <button type="button" className="btn" onClick={ this.selectDetail }>次のSTEPへ</button>
+                    </div>
                 </div>
-            </div>
+            </>
         );
     }
 
     peopleRender() {
         return(
             <>
-                <label>人数</label>
-                <div className="row border p-2 mb-3 m-1 ninzu">
-                    <div className="col-3 text-center reserve-item form-group">
-                        <label>大人(13-)</label>
-                        <input
-                            type="number"
-                            required
-                            className="form-control"
-                            min="1"
-                            max="13"
-                        />
+                <div className="col-8" ref='peopleRender'>
+                    <div className="row justify-content-center py-3">
+                        <div className="col-5"><label>大人 (13歳以上)</label></div>
+                        <div className="col-3">
+                            <input
+                                type="number"
+                                required
+                                className="form-control"
+                                min="1"
+                                max="13"
+                            />
+                        </div>
                     </div>
-                    <div className="col-3 text-center reserve-item form-group">
-                        <label>小学生(7-12)</label>
-                        <input
-                            type="number"
-                            required
-                            className="form-control"
-                            min="0"
-                            max="13"
-                        />
+                    <div className="row justify-content-center py-3">
+                        <div className="col-5"><label>小学生 (7歳から12歳まで)</label></div>
+                        <div className="col-3">
+                            <input
+                                type="number"
+                                required
+                                className="form-control"
+                                min="0"
+                                max="13"
+                            />
+                        </div>
                     </div>
-                    <div className="col-3 text-center reserve-item form-group">
-                        <label>未就学児(4-6)</label>
-                        <input
-                            type="number"
-                            required
-                            className="form-control"
-                            min="0"
-                            max="13"
-                        />
+                    <div className="row justify-content-center py-3">
+                        <div className="col-5"><label>未就学児 (4歳から6歳まで)</label></div>
+                        <div className="col-3">
+                            <input
+                                type="number"
+                                required
+                                className="form-control"
+                                min="0"
+                                max="13"
+                            />
+                        </div>
                     </div>
-                    <div className="col-3 text-center reserve-item form-group">
-                        <label>幼児(0-3)</label>
-                        <input
-                            type="number"
-                            required
-                            className="form-control"
-                            min="0"
-                            max="13"
-                        />
+                    <div className="row justify-content-center py-3">
+                        <div className="col-5"><label>幼児 (0歳から3歳まで)</label></div>
+                        <div className="col-3">
+                            <input
+                                type="number"
+                                required
+                                className="form-control"
+                                min="0"
+                                max="13"
+                            />
+                        </div>
+                    </div>
+                </div>
+                <div className="col-12 text-center">
+                    <div className="form-group py-4">
+                        <button type="button" className="btn" onClick={ this.selectDate }>次のSTEPへ</button>
                     </div>
                 </div>
             </>
@@ -160,62 +228,66 @@ export default class Reservation extends Component {
     detailRender() {
         return(
             <>
-                <div className="row justify-content-end">
-                    <div className="col-3 text-center reserve-item form-group">
-                        <label>朝食</label>
-                        <select
-                        required
-                        className="form-control">
-                            <option value="朝食なし">朝食なし</option>
-                            <option value="朝食あり">朝食あり</option>
-                        </select>
-                    </div>
-                    <div className="col-3 text-center reserve-item form-group">
-                        <label>到着時刻</label>
-                        <input
-                            type="time"
+                <div className="col-8"  ref='detailRender'>
+                    <div className="row justify-content-center py-2">
+                        <div className="col-3"><label>朝食</label></div>
+                        <div className="col-3">
+                            <select
                             required
-                            className="form-control"
-                        />
+                            className="form-control">
+                                <option value="朝食なし">朝食なし</option>
+                                <option value="朝食あり">朝食あり</option>
+                            </select>
+                        </div>
                     </div>
-                    <div className="col-3 text-center reserve-item form-group">
-                        <label>交通手段</label>
-                        <select
-                        required
-                        className="form-control">
-                            <option value="自動車">自動車</option>
-                            <option value="列車">列車</option>
-                            <option value="バス">バス</option>
-                            <option value="パラシュート">パラシュート</option>
-                        </select>
+                    <div className="row justify-content-center py-2">
+                        <div className="col-3"><label>到着時刻</label></div>
+                        <div className="col-3">
+                            <input
+                                type="time"
+                                required
+                                className="form-control"
+                            />
+                        </div>
                     </div>
-                </div>
-                <div className="col-12 form-group">
+                    <div className="row justify-content-center py-2">
+                        <div className="col-3"><label>交通手段</label></div>
+                        <div className="col-3">
+                            <select
+                            required
+                            className="form-control">
+                                <option value="自動車">自動車</option>
+                                <option value="列車">列車</option>
+                                <option value="バス">バス</option>
+                                <option value="パラシュート">パラシュート</option>
+                            </select>
+                        </div>
+                    </div>
                     <label>ご要望記入欄</label>
                     <textarea
                     className="form-control"
                     required
                     ></textarea>
                 </div>
-                <div className="form-group pb-4">
-                    <input type="submit" value="予約" className="btn btn-outline-secondary" />
+                <div className="col-12 text-center">
+                    <div className="form-group py-4">
+                        <button type="button" className="btn confirm" onClick={ this.selectConfirm }>入力確認へ</button>
+                    </div>
                 </div>
             </>
         );
     }
 
-    descriptionRender() {
+    confirmRender() {
         return(
             <>
-                <div className="col-12 form-group">
-                    <label>ご要望記入欄</label>
-                    <textarea
-                    className="form-control"
-                    required
-                    ></textarea>
+                <div className="col-8"  ref='confirmRender'>
+                    {/* TODO 確認画面 */}
                 </div>
-                <div className="form-group pb-4">
-                    <input type="submit" value="予約" className="btn btn-outline-secondary" />
+                <div className="col-12 text-center">
+                    <div className="form-group py-4">
+                        <button type="button" className="btn confirm">Eメールに送信</button>
+                    </div>
                 </div>
             </>
         );
@@ -225,7 +297,7 @@ export default class Reservation extends Component {
         return (
             <div className="reservation">
                 <div className="reserve-modal" ref='reserveWindow'>
-                    <button className="btn px-5"
+                    <button className="btn px-5 close-button"
                         onClick={
                             this.props.closeReservation
                         }
@@ -233,24 +305,31 @@ export default class Reservation extends Component {
                         <i className="fas fa-times"></i>
                     </button>
                     <div className="row justify-content-center">
-                        {/* TODO タブ化 */}
-                        <div className="col-2 text-center reserve-item">
-
-                            <p /* onClick={this.switchWindow('contact')} */>お名前と連絡先</p>
-                        </div>
-                        <div className="col-1 text-center reserve-item">
-                            <p /* onClick={this.switchWindow('people')} */>人数</p>
-                        </div>
-                        <div className="col-1 text-center reserve-item">
-                            <p /* onClick={this.switchWindow('date')} */>予定日</p>
-                        </div>
-                        <div className="col-3 text-center reserve-item">
-                            <p /* onClick={this.switchWindow('detail')} */>朝食/交通手段など</p>
-                        </div>
+                        <ul className="nav nav-tabs">
+                            <li className="nav-item">
+                                <p className={`nav-link ${this.state.isContactSelected ? 'active' : ''}`} onClick={ this.selectContact }><text className="small">STEP 1</text><br />お名前/連絡先</p>
+                            </li>
+                            <li className="nav-item">
+                                <p className={`nav-link ${this.state.isPeopleSelected ? 'active' : ''}`} onClick={ this.selectPeople }><text className="small">STEP 2</text><br />人数</p>
+                            </li>
+                            <li className="nav-item">
+                                <p className={`nav-link ${this.state.isDateSelected ? 'active' : ''}`} onClick={ this.selectDate }><text className="small">STEP 3</text><br />予定日</p>
+                            </li>
+                            <li className="nav-item">
+                                <p className={`nav-link ${this.state.isDetailSelected ? 'active' : ''}`} onClick={ this.selectDetail }><text className="small">STEP 4</text><br />朝食/交通手段など</p>
+                            </li>
+                            <li className="nav-item">
+                                <p className={`nav-link ${this.state.isConfirmSelected ? 'active-confirm' : ''}`} onClick={ this.selectConfirm }><text className="small">STEP 5</text><br />入力確認</p>
+                            </li>
+                        </ul>
                     </div>
-                    <hr />
-                    { this.detailRender() }
-                    <button className="btn btn-default">次へ</button>
+                    <div className="py-5 row justify-content-center reserve-content">
+                        { this.state.isContactSelected == true ? this.contactRender() : '' }
+                        { this.state.isPeopleSelected ? this.peopleRender() : '' }
+                        { this.state.isDateSelected ? this.dateRender() : '' }
+                        { this.state.isDetailSelected ? this.detailRender() : '' }
+                        { this.state.isConfirmSelected ? this.confirmRender() : '' }
+                    </div>
                 </div>
             </div>
         );
