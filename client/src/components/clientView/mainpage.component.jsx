@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
-import readyImg from '../../pics/ready.jpg';
+import HomePic from '../../pics/main/home.jpg';
+import Autumn from '../../pics/main/autumn.jpg';
+import Upright from '../../pics/main/upright.jpg';
 import ClientNavigation from './clientNavigation.component';
 import ReserveCat from './reserveCat.component';
 import Footer from './footer';
@@ -22,11 +24,19 @@ export default class Home extends Component {
                     <ClientNavigation
                         animated={true} />
                     <ReserveCat animated={true} />
-                    <div className="d-flex justify-content-center pt-5">
-                        <img src={ readyImg } alt="ready"  className="readyImg" />
+                    <div className="d-flex justify-content-center main-pics">
+                        <p className="main-description">
+                            「ただいま」って<br />言いたくなる<br />あたたかい宿
+                        </p>
+                        <img src={HomePic} alt="homePicture" className="homePic" />
+                        <div className="cover"></div>
+                        <img src={Autumn} alt="autumn" className="autumn"/>
+                        <img src={Upright} alt="upright" className="upright"/>
                     </div>
-                    <div className="d-flex justify-content-center pt-5">
-                        <a href="http://aitoku.com/">予約はこちらからお願いします</a>
+                    <div className="d-flex justify-content-center introduction">
+                        <h1 className="intro-title">
+                            Introduction
+                        </h1>
                     </div>
                 </div>
                 <Footer />

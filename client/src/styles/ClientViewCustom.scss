@@ -2,10 +2,58 @@
     background-image: url(../pics/background.jpg);
     background-repeat: repeat-y;
     min-height: 150vh;
+    padding-top: 20vh;
 
-    h1.main-title{
-        font-size: xx-large;
-        padding-top: 8%;
+    .main-pics{
+        .main-description{
+            text-align: right;
+            position: absolute;
+            z-index: 4;
+            color: #fff3e0;
+            /* font-weight: bold; */
+            font-size: 30px;
+            padding-left: 530px;
+            padding-top: 50px;
+            font-family: 'Hachi Maru Pop', cursive;
+        }
+        .homePic{
+            position: relative;
+            z-index: 3;
+            height: 600px;
+            width: 900px;
+            padding: 20px 40px 0 0;
+        }
+        .cover{
+            position: absolute;
+            z-index: 2;
+            background-color: #ffc368;
+            height: 600px;
+            width: 900px;
+        }
+        .autumn{
+            position: absolute;
+            z-index: 1;
+            height: 300px;
+            width: 300px;
+            margin-left: -400px;
+            margin-top: 350px;
+        }
+        .upright{
+            position: absolute;
+            z-index: 1;
+            height: 400px;
+            width: 400px;
+            margin-left: 400px;
+            margin-top: -50px;
+            border: 5px solid #fff8e1;
+        }
+    }
+
+    .introduction{
+        padding-top: 300px;
+        .intro-title{
+            
+        }
     }
 }
 
