@@ -6,15 +6,17 @@
 
     .main-pics{
         .main-description{
+            writing-mode: vertical-rl;
             text-align: right;
             position: absolute;
             z-index: 4;
-            color: #fff3e0;
-            /* font-weight: bold; */
-            font-size: 30px;
-            padding-left: 530px;
-            padding-top: 50px;
+            color: black;
+            font-weight: bold;
+            font-size: 23px;
+            padding-right: 980px;
+            padding-top: -100px;
             font-family: 'Hachi Maru Pop', cursive;
+            height: fit-content;
         }
         .homePic{
             position: relative;
@@ -45,7 +47,6 @@
             width: 400px;
             margin-left: 400px;
             margin-top: -50px;
-            border: 5px solid #fff8e1;
         }
     }
 

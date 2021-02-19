@@ -23,11 +23,8 @@ export default class Home extends Component {
                 <div className="main">
                     <ClientNavigation
                         animated={true} />
-                    <ReserveCat animated={true} />
+                    {/* <ReserveCat animated={true} /> */}
                     <div className="d-flex justify-content-center main-pics">
-                        <p className="main-description">
-                            「ただいま」って<br />言いたくなる<br />あたたかい宿
-                        </p>
                         <img src={HomePic} alt="homePicture" className="homePic" />
                         <div className="cover"></div>
                         <img src={Autumn} alt="autumn" className="autumn"/>
