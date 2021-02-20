@@ -1,0 +1,90 @@
+nav.navbar.client-nav{
+    margin-top: 3vh;
+    height: 10vh;
+    background-color: none;
+    z-index: 10;
+    .navbar-brand{
+        height: 10vh;
+        background-color: black;
+        img{
+            height: 100%;
+            box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+    }
+    .navbar-brand:hover{
+        opacity: 80%;
+    }
+    .navbar-nav{
+        background: #37474f28;
+        border-radius: 10px;
+    }
+    .navbar-toggler.collapsed, .navbar-toggler{
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    }
+    a.nav-link{
+        text-align: center;
+        margin-left: 20%;
+        margin-right: 20%;
+        color: #37474f;
+        font-size: medium;
+        font-weight: bold;
+        font-family: 'M PLUS Rounded 1c', sans-serif;
+        position: relative;
+    }
+    a.nav-link.selected, a.nav-link.selected:hover{
+        color: #bf360cb0;
+    }
+    a.nav-link::after{
+        content: '';
+        width: 0%;
+        height: 2px;
+        background-color: #bf360c;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        border-radius: 10px;
+        transition: all 500ms ease;
+    }
+    .hoge{
+        display: none;
+    }
+    a.nav-link:hover{
+        color: #bf360c;
+    }
+    a.nav-link:hover::after{
+        left: 10%;
+        width: 80%;
+    }
+    a.nav-link.translate{
+        font-family: 'Montserrat Alternates', sans-serif;
+    }
+    a.nav-link.reserve-item{
+        color: white;
+        background-color: #bf360cb0;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        transition: all 500ms ease-in;
+    }
+    a.nav-link.reserve-item:hover{
+        background-color: #37474f;
+    }
+    a.nav-link.selected:hover::after, a.nav-link.translate:hover::after, a.nav-link.reserve-item:hover::after{
+        width: 0;
+    }
+    @media screen and (min-width: 990px) {
+        .navbar-nav{
+            background: none;
+            border-radius: 0;
+        }
+        a.nav-link{
+            margin-left: 0;
+            margin-right: 0;
+        }
+    }
+}
+
+@media screen and (min-width: 992px) {
+    nav.navbar.client-nav{
+        background: #37474f28;
+    }
+}

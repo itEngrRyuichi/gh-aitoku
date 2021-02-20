@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Helmet } from 'react-helmet';
-import Ready from './ready.component';
+/* import Ready from './ready.component'; */
+import MainPage from './clientView/mainpage.component';
 import ogpics from "../pics/ogpics.jpg";
 
 export default class Home extends Component {
@@ -15,7 +16,7 @@ export default class Home extends Component {
         return (
             <Fragment>
                 <Helmet>
-                    <title>愛徳 | 公式ホームページ</title>
+                    <title>ゲストハウス愛徳 | 公式ホームページ</title>
                     <meta name="description" content="「ただいま」って言いたくなるあたたかい宿泊施設です。野沢温泉村、ゲストハウス愛徳で宿泊しませんか？ ゲレンデまで徒歩1分。スキーシーズンもグリーンシーズンも楽しもう！スキー、スノーボードは勿論、夏は涼しく自然の中でリモートワークも最適！" />
                     <meta name="copyright" content="ゲストハウス愛徳"></meta>
                     {/* OGP Tag */}
@@ -26,7 +27,7 @@ export default class Home extends Component {
                     <meta property="og:site_name" content="ゲストハウス愛徳" />
                     <meta property="og:description" content="「ただいま」って言いたくなるあたたかい宿泊施設。野沢温泉村、ゲストハウス愛徳で宿泊しませんか？ ゲレンデまで徒歩1分。スキースノボは勿論、夏は涼しく自然の中でリモートワークも最適！" />
                 </Helmet>
-                <Ready />
+                <MainPage />
             </Fragment>
         );
     }

@@ -1,0 +1,128 @@
+.reservation{
+    background-color: #000000c7;
+    width: 100%;
+    height: 100vh;
+    position: fixed;
+    z-index: 200;
+    animation: fadeIn ease 0.5s;
+    top: 0;
+    left: 0;
+    .reserve-modal{
+        background: #f1f8e9;
+        top: 10%;
+        right: 20%;
+        width: 60%;
+        height: 80%;
+        position: fixed;
+        z-index: 201;
+        border-radius: 15px;
+        button.close-button{
+            font-size: xx-large;
+            color: #bf360c;
+        }
+        button.close-button:hover{
+            color: #ffab40;
+        }
+        .nav.nav-tabs {
+            border-bottom: none;
+            li.nav-item {
+                p{
+                    margin-bottom: 0;
+                    cursor: pointer;
+                    font-size: medium;
+                    border-bottom: solid 1px #ffab40;
+                }
+                p:hover{
+                    color: #bf360c;
+                    border: solid 1px #ffab40;
+                }  
+                .date-selector{
+                    cursor: pointer;
+                }
+                .active {
+                    background: #f1f8e9;
+                    font-weight: bold;
+                    color: #bf360c;
+                    border-top: solid 4px #bf360c;
+                    border-right: solid 1px #ffab40;
+                    border-left: solid 1px #ffab40;
+                    border-bottom: none;
+                    .small{
+                        font-weight: bold;
+                    }
+                }
+                .active:hover{
+                    border-top: solid 4px #bf360c;
+                    border-right: solid 1px #ffab40;
+                    border-left: solid 1px #ffab40;
+                    border-bottom: none;
+                }
+                .active-confirm{
+                    background: #f1f8e9;
+                    font-weight: bold;
+                    color: #ffab40;
+                    border-top: solid 4px #ffab40;
+                    border-right: solid 1px #ffab40;
+                    border-left: solid 1px #ffab40;
+                    border-bottom: none;
+                    .small{
+                        font-weight: bold;
+                    }
+                }
+                .active-confirm:hover{
+                    color: #ffab40;
+                    border-top: solid 4px #ffab40;
+                    border-right: solid 1px #ffab40;
+                    border-left: solid 1px #ffab40;
+                    border-bottom: none;
+                }
+            }
+        }
+        .reserve-content{
+            label{
+                color: #bf360c;
+                font-family: 'Hachi Maru Pop', cursive;
+            }
+            input, select, textarea{
+                border: 1px solid#ffab40;
+            }
+            textarea{
+                max-height: 10vh;
+            }
+            input::placeholder, select option, option:checked{
+                color: #ffab40;
+                opacity: 0.6;
+            }
+            button{
+                color: #bf360c;
+                border: 1px solid #bf360c;
+                transition: all 500ms ease-in;
+            }
+            button:hover{
+                color: #fff;
+                background: #bf360c;
+            }
+            button.confirm{
+                color: #ffab40;
+                border: 1px solid #ffab40;
+            }
+            button.confirm:hover{
+                color: #fff;
+                background: #ffab40;
+            }
+            input[type=number]::-webkit-inner-spin-button, 
+            input[type=number]::-webkit-outer-spin-button {  
+                opacity: 1;
+                background-color: #ffab40;
+            }
+        }
+    }
+}
+@keyframes fadeIn {
+    0% {
+        opacity:0;
+    }
+    100% {
+        opacity:1;
+    }
+}

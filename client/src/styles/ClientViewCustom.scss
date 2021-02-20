@@ -1,0 +1,60 @@
+.main{
+    background-image: url(../pics/background.jpg);
+    background-repeat: repeat-y;
+    min-height: 150vh;
+    padding-top: 20vh;
+
+    .main-pics{
+        .main-description{
+            writing-mode: vertical-rl;
+            text-align: right;
+            position: absolute;
+            z-index: 4;
+            color: black;
+            font-weight: bold;
+            font-size: 23px;
+            padding-right: 980px;
+            padding-top: -100px;
+            font-family: 'Hachi Maru Pop', cursive;
+            height: fit-content;
+        }
+        .homePic{
+            position: relative;
+            z-index: 3;
+            height: 600px;
+            width: 900px;
+            padding: 20px 40px 0 0;
+        }
+        .cover{
+            position: absolute;
+            z-index: 2;
+            background-color: #ffc368;
+            height: 600px;
+            width: 900px;
+        }
+        .autumn{
+            position: absolute;
+            z-index: 1;
+            height: 300px;
+            width: 300px;
+            margin-left: -400px;
+            margin-top: 350px;
+        }
+        .upright{
+            position: absolute;
+            z-index: 1;
+            height: 400px;
+            width: 400px;
+            margin-left: 400px;
+            margin-top: -50px;
+        }
+    }
+
+    .introduction{
+        padding-top: 300px;
+        .intro-title{
+            
+        }
+    }
+}
+

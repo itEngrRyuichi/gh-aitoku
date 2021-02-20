@@ -3,4 +3,11 @@
 @import "../../node_modules/bootstrap/dist/css/bootstrap.css";
 @import "../../node_modules/@fortawesome/fontawesome-free/css/all.css";
 @import "./Fonts.scss";
+
+/* Cutom */
 @import "./Custom.scss";
+@import "./ClientViewCustom.scss";
+@import './ClientNavigation.scss';
+@import './ClientReserveCat.scss';
+@import './ClientReservation.scss';
+@import './ClientFooter.scss';
