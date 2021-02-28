@@ -1,5 +1,4 @@
 import React, { Component, Fragment } from 'react';
-import { Helmet } from 'react-helmet';
 import MainPage from './clientView/mainpage.component';
 
 export default class Home extends Component {
@@ -13,18 +12,6 @@ export default class Home extends Component {
     render() {
         return (
             <Fragment>
-                <Helmet>
-                    <title>ゲストハウス愛徳 | 公式ホームページ</title>
-                    <meta name="description" content="「ただいま」って言いたくなるあたたかい宿泊施設です。野沢温泉村、ゲストハウス愛徳で宿泊しませんか？ ゲレンデまで徒歩1分。スキーシーズンもグリーンシーズンも楽しもう！スキー、スノーボードは勿論、夏は涼しく自然の中でリモートワークも最適！" />
-                    <meta name="copyright" content="ゲストハウス愛徳"></meta>
-                    {/* OGP Tag */}
-                    <meta property="og:title" content="ゲストハウス愛徳" />
-                    <meta property="og:type" content="website" />
-                    <meta property="og:url" content="https://ghaitoku.herokuapp.com/" />
-                    <meta property="og:image" content="https://ghaitoku.herokuapp.com/ogpics.jpg" />
-                    <meta property="og:site_name" content="ゲストハウス愛徳" />
-                    <meta property="og:description" content="「ただいま」って言いたくなるあたたかい宿泊施設。野沢温泉村、ゲストハウス愛徳で宿泊しませんか？ ゲレンデまで徒歩1分。スキースノボは勿論、夏は涼しく自然の中でリモートワークも最適！" />
-                </Helmet>
                 <MainPage />
             </Fragment>
         );
