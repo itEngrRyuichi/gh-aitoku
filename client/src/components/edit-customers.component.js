@@ -4,6 +4,8 @@ import AdminNavigation from "./navbar.component";
 
 import axios from 'axios';
 
+const uri = 'https://aitoku.herokuapp.com/';
+
 export default class EditCustomers extends Component {
     constructor(props) {
         super(props);
@@ -47,7 +49,7 @@ export default class EditCustomers extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://aitoku.herokuapp.com/customers/'+this.props.match.params.id)
+        axios.get( uri + 'customers/'+this.props.match.params.id)
             .then(response => {
                 this.setState({
                     checkin: new Date(response.data.checkin).toISOString().split('T')[0],
@@ -223,7 +225,7 @@ export default class EditCustomers extends Component {
             description: this.state.description,
         };
 
-        axios.post('https://aitoku.herokuapp.com/customers/update/'+ this.props.match.params.id, customer) 
+        axios.post( uri + 'customers/update/'+ this.props.match.params.id, customer) 
             .then(res => console.log(res.data) + setTimeout(function(){ window.location = '/admin';}, 100));
     }
 

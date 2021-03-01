@@ -6,6 +6,8 @@ import { Link } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
 import axios from 'axios';
 
+const uri = 'https://aitoku.herokuapp.com/';
+
 const Customer = props => (
     <tr>
         <td>{props.customer.checkin.substring(0,10)}</td>
@@ -100,7 +102,8 @@ export default class CustomersList extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://aitoku.herokuapp.com/customers')
+        const path =  uri + '';
+        axios.get(path + 'customers')
         .then(response => {
             this.setState({ customers: response.data })
         })
@@ -110,7 +113,7 @@ export default class CustomersList extends Component {
     }
 
     deleteCustomer(id) {
-        axios.delete('https://aitoku.herokuapp.com/customers'+id)
+        axios.delete( uri + 'customers'+id)
             .then(res => console.log(res.data));
             this.setState({
                 customers: this.state.customers.filter(el => el._id !== id)

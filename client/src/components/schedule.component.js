@@ -8,6 +8,8 @@ import { Modal, Button } from 'react-bootstrap'
 import moment from 'moment';
 import 'moment/locale/ja';
 
+const uri = 'https://aitoku.herokuapp.com/';
+
 const localizer = momentLocalizer(moment);
 const messages = {
     previous: '<<',
@@ -38,7 +40,7 @@ export default class Schedule extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://aitoku.herokuapp.com/schedule/')
+        axios.get( uri + 'schedule/')
         .then(response => {
             this.setState({ events: 
                 response.data.map(currentcustomer => {
@@ -64,7 +66,7 @@ export default class Schedule extends Component {
     }
 
     openModal(id) {
-        axios.get('https://aitoku.herokuapp.com/customers/'+id)
+        axios.get( uri + 'customers/'+id)
         .then(response => {
             this.setState({
                 isOpen: true,
