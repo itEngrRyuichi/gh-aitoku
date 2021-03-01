@@ -6,7 +6,7 @@ import { Link } from 'react-router-dom';
 import { Dropdown } from 'react-bootstrap';
 import axios from 'axios';
 
-const uri = 'https://aitoku.herokuapp.com/';
+const uri = 'https://ai-toku.herokuapp.com/';
 
 const Customer = props => (
     <tr>

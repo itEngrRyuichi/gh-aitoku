@@ -8,7 +8,7 @@ import { Modal, Button } from 'react-bootstrap'
 import moment from 'moment';
 import 'moment/locale/ja';
 
-const uri = 'https://aitoku.herokuapp.com/';
+const uri = 'https://ai-toku.herokuapp.com/';
 
 const localizer = momentLocalizer(moment);
 const messages = {

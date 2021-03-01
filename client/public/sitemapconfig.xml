@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://aitoku.herokuapp.com/</loc>
+    <loc>https://ai-toku.herokuapp.com/</loc>
     <lastmod>2021-02-20T22:04:51+09:00</lastmod>
   </url>
   <url>
-    <loc>https://aitoku.herokuapp.com/facility</loc>
+    <loc>https://ai-toku.herokuapp.com/facility</loc>
     <lastmod>2021-02-20T22:04:51+09:00</lastmod>
   </url>
   <url>
-    <loc>https://aitoku.herokuapp.com/activity</loc>
+    <loc>https://ai-toku.herokuapp.com/activity</loc>
     <lastmod>2021-02-20T22:04:51+09:00</lastmod>
   </url>
   <url>
-    <loc>https://aitoku.herokuapp.com/access</loc>
+    <loc>https://ai-toku.herokuapp.com/access</loc>
     <lastmod>2021-02-20T22:04:51+09:00</lastmod>
   </url>
   <url>
-    <loc>https://aitoku.herokuapp.com/contact</loc>
+    <loc>https://ai-toku.herokuapp.com/contact</loc>
     <lastmod>2021-02-20T22:04:51+09:00</lastmod>
   </url>
   <url>
-    <loc>https://aitoku.herokuapp.com/reservation</loc>
+    <loc>https://ai-toku.herokuapp.com/reservation</loc>
     <lastmod>2021-02-20T22:04:51+09:00</lastmod>
   </url>
 </urlset>

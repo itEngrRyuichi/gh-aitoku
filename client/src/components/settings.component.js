@@ -6,7 +6,7 @@ import FloorMap from "./floorMap.component";
 
 import axios from 'axios';
 
-const uri = 'https://aitoku.herokuapp.com/';
+const uri = 'https://ai-toku.herokuapp.com/';
 
 export default class Settings extends Component {
     constructor(props) {

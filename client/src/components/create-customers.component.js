@@ -7,7 +7,7 @@ import FloorPlan from "./floorplan.component";
 import axios from 'axios';
 import e from 'cors';
 
-const uri = 'https://aitoku.herokuapp.com/';
+const uri = 'https://ai-toku.herokuapp.com/';
 
 export default class CreateCustomers extends Component {
     constructor(props) {

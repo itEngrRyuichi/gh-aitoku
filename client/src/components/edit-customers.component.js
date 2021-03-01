@@ -4,7 +4,7 @@ import AdminNavigation from "./navbar.component";
 
 import axios from 'axios';
 
-const uri = 'https://aitoku.herokuapp.com/';
+const uri = 'https://ai-toku.herokuapp.com/';
 
 export default class EditCustomers extends Component {
     constructor(props) {
