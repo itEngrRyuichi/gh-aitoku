@@ -100,7 +100,7 @@ export default class CustomersList extends Component {
     }
 
     componentDidMount() {
-        axios.get('https://gh-aitoku.herokuapp.com/customers')
+        axios.get('https://aitoku.herokuapp.com/customers')
         .then(response => {
             this.setState({ customers: response.data })
         })
@@ -110,7 +110,7 @@ export default class CustomersList extends Component {
     }
 
     deleteCustomer(id) {
-        axios.delete('https://gh-aitoku.herokuapp.com/customers'+id)
+        axios.delete('https://aitoku.herokuapp.com/customers'+id)
             .then(res => console.log(res.data));
             this.setState({
                 customers: this.state.customers.filter(el => el._id !== id)
